@@ -32,7 +32,6 @@ const ProfileMainPage = () => {
     },[])
 
         return(
-                
                 profile && (
                     <>
                     {/* inserire qui navbar */}
