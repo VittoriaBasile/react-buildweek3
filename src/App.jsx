@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Topbar />
       <ProfileMainPage />
-      <HeaderProfile />
       <MyFooter />
     </div>
   );
