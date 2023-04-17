@@ -2,7 +2,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileFetchAction } from "../redux/actions";
-//const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me"
 
 const ProfileMainPage = () => {
     
