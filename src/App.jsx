@@ -1,13 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Topbar from "./components/Topbar";
+import MyFooter from "./components/MyFooter";
+import HeaderProfile from "./components/HeaderProfile";
 import ProfileMainPage from "./components/ProfileMainPage";
+
 import HeaderProfile from "./Components/HeaderProfile";
 
 function App() {
   return (
-    <>
+    <div className="App">
+      <Topbar />
       <ProfileMainPage />
-    </>
+      <HeaderProfile />
+      <MyFooter />
+    </div>
   );
 }
 
