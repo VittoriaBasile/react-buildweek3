@@ -3,7 +3,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import editProfileReducer from "../reducers/editProfileReducer";
-import profileReducer from "../reducers/profileFetch";
+import profileReducer from "../reducers/profileReducer";
+import searchProfileReducer from "../reducers/searchProfileReducer";
 
 const persistConfig = {
 	key: "root",
@@ -18,6 +19,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	editProfileReducer: editProfileReducer,
 	profile: profileReducer,
+	searchProfile: searchProfileReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

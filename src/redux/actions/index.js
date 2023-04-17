@@ -1,7 +1,9 @@
 export const SET_PROFILE = "SET_PROFILE";
 export const PROFILE = "PROFILE";
+export const SEARCHED_PROFILE = "SEARCHED_PROFILE";
 
 const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
+const searchProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
 export const profileFetchAction = () => {
 	return async (dispatch) => {
@@ -16,6 +18,25 @@ export const profileFetchAction = () => {
 				const data = await response.json();
 				dispatch({ type: PROFILE, payload: data });
 				console.log(data);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+export const searchProfileAction = (userID) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(searchProfileEndpoint + { userID }, {
+				headers: {
+					"Content-Type": "application/json",
+					authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				},
+			});
+			if (response.ok) {
+				const searchedProfile = await response.json();
+				dispatch({ type: SEARCHED_PROFILE, payload: searchedProfile });
 			}
 		} catch (error) {
 			console.log(error);
