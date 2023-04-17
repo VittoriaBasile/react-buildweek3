@@ -2,9 +2,6 @@ body {
   background-color: #f3f2ef;
 }
 
-
-
-
 .search-icon {
   display: inline-block;
   width: 0px;
@@ -26,9 +23,6 @@ body {
 .text-gratis {
   color: #734b13;
 }
-
-
-
 
 .footer-links {
   text-decoration: none;
@@ -52,9 +46,6 @@ body {
   text-decoration: underline;
   font-weight: bold;
 }
-
-
-
 
 .containerCard {
   width: 480px;
