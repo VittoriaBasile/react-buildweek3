@@ -1,22 +1,22 @@
 import { Button, Card, Carousel, Col, Container, Row } from "react-bootstrap";
 
-const HeaderProfile = () => {
+const HeaderProfile = ({profileData}) => {
   return (
     <>
-      <Container className="containerCard">
-        <Card style={{ width: "780px" }} className="border border-secondary">
+        <Card className="border border-secondary">
           <Card.Img className="profile-background-image bg-secondary" variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Row>
               <Col>
-                <img className="profileImg border border-secondary rounded-circle" src="holder.js/80px" alt="" />
-                <Card.Title>NOME UTENTE</Card.Title>
+                <img className="profileImg border border-secondary rounded-circle " src={profileData.image} alt="profileImage" width="100px" />
+                <Card.Title>{profileData.name} {profileData.surname}</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                  Epicode <br/>
+                  {profileData.bio}
                 </Card.Text>
-                <span className="text-secondary fs-6">luogo</span>
+                <span className="text-secondary fs-6">{profileData.area}</span>
                 <span>-</span>
-                <span className="text-primary fs-6">informazioni di contatto</span>
+                <span className="text-primary fs-6">Informazioni di contatto: {profileData.email}</span>
               </Col>
               <Col className="ms-5">
                 <Row className="">
@@ -34,7 +34,7 @@ const HeaderProfile = () => {
                 </Row>
               </Col>
             </Row>
-            <p className="text-primary fs-6">N collegamenti</p>
+            <p className="text-primary fs-6">100 collegamenti</p>
             <Row>
               <Col xs={3} className="text-center p-0">
                 <Button variant="primary" className="rounded-pill">
@@ -107,7 +107,6 @@ const HeaderProfile = () => {
             </Carousel>
           </Card.Body>
         </Card>
-      </Container>
     </>
   );
 };
