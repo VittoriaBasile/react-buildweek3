@@ -1,0 +1,25 @@
+.search-icon {
+  display: inline-block;
+  width: 0px;
+
+
+  z-index: 150;
+}
+
+.input-search {
+  background-color: #EEF3F8;
+}
+
+.link-nav {
+  color: rgb(93, 93, 93);
+
+}
+
+.link-nav:hover {
+  color: black;
+
+}
+
+.text-gratis {
+  color: #734b13;
+}
