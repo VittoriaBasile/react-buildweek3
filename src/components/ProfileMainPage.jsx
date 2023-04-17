@@ -13,7 +13,6 @@ const ProfileMainPage = () => {
                 headers: {
                     "Component-Type": "application/json",
                     authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
-                    // 
                 }
             })
             if(response.ok){
