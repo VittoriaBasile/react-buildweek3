@@ -9,7 +9,7 @@ body {
 }
 
 .input-search {
-  background-color: #EEF3F8;
+  background-color: #eef3f8;
 }
 
 .link-nav {
@@ -49,6 +49,15 @@ body {
 
 .containerCard {
   width: 480px;
+}
+
+.profile-background-image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 25%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  cursor: pointer;
 }
 
 .profile-background-image {
