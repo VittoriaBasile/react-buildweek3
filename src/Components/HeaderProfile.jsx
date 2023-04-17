@@ -53,50 +53,51 @@ const HeaderProfile = () => {
               </Col>
             </Row>
             <Carousel>
-              <Row className="mt-3">
-                <Card className="d-flex flex-row" style={{ width: "230px", backgroundColor: "#dce6f1" }}>
-                  <Col className="offset-1">
-                    <Card.Body className="hl-1">
+              <Row className="mt-3 flex-nowrap overflow-auto">
+                <Card className="d-flex flex-row" style={{ width: "370px", backgroundColor: "#dce6f1" }}>
+                  <Card.Body className="hl-1">
+                    <Col xs={9} className="">
                       <h3 className="fs-6">Disponibile a lavorare</h3>
                       <p className="mb-2  fs-6">lavoro</p>
                       <Card.Link href="#">Mostra dettagli</Card.Link>
-                    </Card.Body>
-                  </Col>
-                  <Col style={{ width: "10px" }}>
+                    </Col>
+                  </Card.Body>
+
+                  <Col xs={3} style={{ width: "10px" }}>
                     <div className="d-flex justify-content-end">
                       <Button className="border-0 bg-transparent text-secondary">svg</Button>
                     </div>
                   </Col>
                 </Card>
 
-                <Card className="d-flex flex-row" style={{ width: "230px" }}>
-                  <Col className="offset-1">
-                    <Card.Body className="hl-1">
+                <Card className="d-flex flex-row" style={{ width: "370px" }}>
+                  <Card.Body className="hl-1">
+                    <Col xs={9} className="">
                       <span className="fs-6 fw-bold">Metti in risalto i servizi </span>
                       <span className="mb-2  fs-6">
                         che offri, così tu e la tua azienda potrete apparire nei risultati di ricerca.
                       </span>
                       <Card.Link href="#">Inizia</Card.Link>
-                    </Card.Body>
-                  </Col>
-                  <Col style={{ width: "10px" }}>
+                    </Col>
+                  </Card.Body>
+
+                  <Col xs={3} style={{ width: "10px" }}>
                     <div className="d-flex justify-content-end">
                       <Button className="border-0 bg-transparent text-secondary">X</Button>
                     </div>
                   </Col>
                 </Card>
 
-                <Card className="d-flex flex-row" style={{ width: "230px" }}>
-                  <Col className="offset-1">
-                    <Card.Body className="hl-1">
-                      <span className="fs-6 fw-bold">Metti in risalto i servizi </span>
-                      <span className="mb-2  fs-6">
-                        che offri, così tu e la tua azienda potrete apparire nei risultati di ricerca.
-                      </span>
+                <Card className="d-flex flex-row" style={{ width: "370px" }}>
+                  <Card.Body className="hl-1">
+                    <Col xs={9} className="">
+                      <span className="fs-6 fw-bold">Fai sapere che stai facendo selezione </span>
+                      <span className="mb-2  fs-6">e attrai candidati qualificati. </span>
                       <Card.Link href="#">Inizia</Card.Link>
-                    </Card.Body>
-                  </Col>
-                  <Col style={{ width: "10px" }}>
+                    </Col>
+                  </Card.Body>
+
+                  <Col xs={3} style={{ width: "10px" }}>
                     <div className="d-flex justify-content-end">
                       <Button className="border-0 bg-transparent text-secondary">X</Button>
                     </div>
