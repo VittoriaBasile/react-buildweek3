@@ -1,50 +1,50 @@
 body {
-	background-color: #f3f2ef;
+  background-color: #f3f2ef;
 }
 
 .search-icon {
-	display: inline-block;
-	width: 0px;
-	z-index: 150;
+  display: inline-block;
+  width: 0px;
+  z-index: 150;
 }
 
 .input-search {
-	background-color: #eef3f8;
+  background-color: #eef3f8;
 }
 
 .link-nav {
-	color: rgb(93, 93, 93);
+  color: rgb(93, 93, 93);
 }
 
 .link-nav:hover {
-	color: black;
+  color: black;
 }
 
 .text-gratis {
-	color: #734b13;
+  color: #734b13;
 }
 
 .footer-links {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .footer-links:hover {
-	text-decoration: underline;
-	font-weight: bold;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .footer-icon-links {
-	text-decoration: none;
-	opacity: 70%;
-	color: black;
-	font-weight: bold;
-	align-items: center;
+  text-decoration: none;
+  opacity: 70%;
+  color: black;
+  font-weight: bold;
+  align-items: center;
 }
 
 .footer-icon-links:hover {
-	text-decoration: underline;
-	font-weight: bold;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 /* .containerCard {
@@ -52,19 +52,68 @@ body {
 } */
 
 .profile-background-image {
-	position: relative;
-	width: 100%;
-	padding-bottom: 25%;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding-bottom: 25%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  cursor: pointer;
+}
+.headerCard {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-color: #e0dfdc;
+}
+.profileImg {
+  margin-top: -112px;
+  z-index: 4;
+}
+.info {
+  color: #0a66c2;
+}
+.btnDisponibile {
+  background-color: #0a66c2;
+}
+.miniHeaderCard {
+  width: 420px;
+  border-color: #e0dfdc;
+}
+.cardDettaglio {
+  background-color: #dce6f1;
+}
+.btnAdd {
+  border: 1px solid;
+  border-color: #0a66c2;
+}
+.modificaFoto {
+  width: 2rem;
+  height: 2rem;
 }
 
-.profile-background-image {
-	position: relative;
-	width: 100%;
-	padding-bottom: 25%;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	cursor: pointer;
+.iconaFotoDiv {
+  top: 2rem;
+  right: 2rem;
+}
+.btnModificaProfilo {
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
+}
+.btnModificaProfilo:hover {
+  background-color: #e0dfdc;
+}
+.carousel-control-prev-icon {
+  display: none;
+}
+.carousel-control-next-icon {
+  display: none;
+}
+.carousel-indicators .active {
+  display: none;
+}
+.linkCard {
+  text-decoration: none;
+}
+.linkCard:hover {
+  text-decoration: underline;
 }
