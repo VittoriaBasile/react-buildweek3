@@ -23,3 +23,30 @@
 .text-gratis {
   color: #734b13;
 }
+
+.footer-links {
+  text-decoration: none;
+
+  color: black;
+}
+
+.footer-links:hover {
+  text-decoration: underline;
+  font-weight: bold;
+
+
+}
+
+.footer-icon-links {
+  text-decoration: none;
+  opacity: 70%;
+  color: black;
+  font-weight: bold;
+  align-items: center;
+}
+
+.footer-icon-links:hover {
+  text-decoration: underline;
+  font-weight: bold;
+
+}
