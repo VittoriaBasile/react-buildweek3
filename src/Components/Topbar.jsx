@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Nav,
-  NavDropdown,
-  NavLink,
-  Navbar,
-  Row,
-} from "react-bootstrap";
+import { Col, Container, Form, Nav, NavDropdown, Navbar } from "react-bootstrap";
 
 const Topbar = () => {
   return (
@@ -53,11 +42,7 @@ const Topbar = () => {
                 />
               </Form>
             </Col>
-            <Nav
-              className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
+            <Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
               <Nav.Link href="#action1" className="link-nav ">
                 Home
               </Nav.Link>
@@ -75,24 +60,18 @@ const Topbar = () => {
               </Nav.Link>
               <NavDropdown title="Tu" className="border-end link-nav ">
                 <NavDropdown.Item href="#action3">Lavoro</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Messaggistica
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Messaggistica</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Notifiche</NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Lavoro" className="link-nav ">
                 <NavDropdown.Item href="#action3">Lavoro</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Messaggistica
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Messaggistica</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Notifiche</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link className="text-gratis text-decoration-underline">
-                Prova Premium gratis
-              </Nav.Link>
+              <Nav.Link className="text-gratis text-decoration-underline">Prova Premium gratis</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
