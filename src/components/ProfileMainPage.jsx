@@ -1,35 +1,20 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me"
+import { profileFetchAction } from "../redux/actions";
+//const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me"
 
 const ProfileMainPage = () => {
-    const [profile, setProfile] = useState()
-
-    const profileFetch = async () => {
-        try {
-            const response = await fetch(persProfileEndpoint, {
-                headers: {
-                    "Component-Type": "application/json",
-                    authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
-                }
-            })
-            if(response.ok){
-                const profileData = await response.json();
-                setProfile(profileData);
-                console.log(profileData)
-            }
-        } catch (error) {
-            console.error(error)
-        }
-    };
+    
+    const dispatch = useDispatch()
+    const profile = useSelector((state)=> state.profile.content)
+    console.log(profile)
 
     useEffect(()=>{
-        profileFetch()
+        dispatch(profileFetchAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-
+    
         return(
                 profile && (
                     <>
