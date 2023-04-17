@@ -5,6 +5,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import editProfileReducer from "../reducers/editProfileReducer";
 import profileReducer from "../reducers/profileReducer";
 import searchProfileReducer from "../reducers/searchProfileReducer";
+import allProfileReducer from "../reducers/allProfileReducer";
 
 const persistConfig = {
 	key: "root",
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
 	editProfileReducer: editProfileReducer,
 	profile: profileReducer,
 	searchProfile: searchProfileReducer,
+	allProfile: allProfileReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

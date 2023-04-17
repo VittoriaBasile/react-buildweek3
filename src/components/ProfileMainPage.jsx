@@ -1,16 +1,19 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { profileFetchAction } from "../redux/actions";
+import { allProfileFetchAction, profileFetchAction } from "../redux/actions";
 
 const ProfileMainPage = () => {
     
     const dispatch = useDispatch()
     const profile = useSelector((state)=> state.profile.content)
+    const allProfile = useSelector((state)=> state.allProfile.content)
+    console.log(allProfile)
     console.log(profile)
 
     useEffect(()=>{
         dispatch(profileFetchAction())
+        dispatch(allProfileFetchAction())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
@@ -37,6 +40,15 @@ const ProfileMainPage = () => {
                                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, 
                                     inventore fuga optio tempore illo blanditiis itaque accusamus nostrum? 
                                     Voluptatibus consequuntur maiores porro odit repudiandae culpa vel enim beatae minus earum!
+                                    {/* qui sotto il map che pesca tutti i profili */}
+                                    {/* {allProfile &&(
+                                        allProfile.map((profile) => {
+                                            return(
+                                                <p>{profile.name}</p>
+                                            )
+                                            
+                                        }))
+                                    } */}
                                     </Col>
                                 </Row>
                             </Container>
