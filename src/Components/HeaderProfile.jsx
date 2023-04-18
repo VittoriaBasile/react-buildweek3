@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
-import MyVerticallyCenteredModal from "./ModalProfileEdit";
+import MyVerticallyCenteredModal from "./ModalProfileEdit"; //import fatto correttamente e funziona tutto, non sappiamo ancora cosa vuole dalla vita.
+
 
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
