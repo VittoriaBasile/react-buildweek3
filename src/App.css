@@ -117,3 +117,11 @@ body {
 .linkCard:hover {
   text-decoration: underline;
 }
+.testoGray {
+  color: #666666;
+}
+.EsperienzaCard {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-color: #e0dfdc;
+}
