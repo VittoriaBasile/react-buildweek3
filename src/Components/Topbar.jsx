@@ -50,7 +50,7 @@ const Topbar = () => {
               </Form>
             </Col>
             <Nav
-              className="ms-auto my-2 my-lg-0 "
+              className="ms-auto my-2 my-lg-0 gap-2 align-items-center"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >

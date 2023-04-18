@@ -52,7 +52,7 @@ const MyFooter = () => (
                   Opzioni per gli annunci pubblicitari
                 </a>
               </li>
-              <li className="pt-2">
+              <li className="">
                 <a className="footer-links" href="#">
                   Mobile
                 </a>
@@ -76,7 +76,7 @@ const MyFooter = () => (
                   Pubblicità
                 </a>
               </li>
-              <li className="py-3">
+              <li className="">
                 <a className="footer-links" href="#">
                   Piccole imprese
                 </a>

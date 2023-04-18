@@ -64,6 +64,11 @@ body {
   cursor: pointer;
 }
 
+.btn-other-profile:hover {
+  background-color: rgb(223, 223, 223);
+  border: 2px solid rgb(71, 71, 71);
+}
+
 .headerCard {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;

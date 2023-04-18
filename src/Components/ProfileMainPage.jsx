@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allProfileFetchAction, profileFetchAction } from "../redux/actions";
@@ -23,17 +23,74 @@ const ProfileMainPage = () => {
       <>
         <Container fluid className="bg-mainpage">
           <Row className="bg-mainpage px-5 gx-2 justify-content-center">
-            <Col md={6} className="mx-2">
+            <Col md={7} className="mx-2">
               {/* sezione principale con profile header, inserire qui a cascata i vari componenti */}
               <HeaderProfile profileData={profile} />
               <Esperienze />
             </Col>
-            <Col md={2} className="mx-2 d-none d-md-block">
+            <Col
+              md={2}
+              className="mx-2 d-none d-md-block  border mt-4 pt-4 ps-1 rounded-3 bg-white"
+            >
+              <h6 className="ps-3">Persone che potresti conoscere</h6>
               {/* sezione secondaria, notizie e suggerimenti su sidebar, inserire qui a cascata i vari componenti */}
               {/* qui sotto il map che pesca tutti i profili */}
               {allProfile &&
                 allProfile.slice(0, 5).map((profile) => {
-                  return <p>{profile.name}</p>;
+                  return (
+                    <div className="mt-3 ">
+                      <Container className="  rounded-3 ">
+                        <Row className="">
+                          <Col xs={3}>
+                            {/* img */}
+                            <img
+                              src={profile.image}
+                              alt="..."
+                              className="img-fluid rounded-circle "
+                            />{" "}
+                          </Col>
+                          <Col xs={8} className="px-0">
+                            {/* nome */}
+                            <h6 className="m-0">
+                              <a href="#" className="footer-links">
+                                {profile.name} {profile.surname}
+                              </a>
+                            </h6>
+                            {/* bio */}
+                            <p className="text-truncate m-0">{profile.bio}</p>
+                            {/* titolo lavorativo */}
+                            <p className="text-truncate m-0">{profile.title}</p>
+                            <Button
+                              className="btn-other-profile rounded-pill border-dark d-flex align-items-center py-1 mt-2"
+                              variant="outlined"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16"
+                                data-supported-dps="16x16"
+                                fill="currentColor"
+                                className="mercado-match mx-1"
+                                width="16"
+                                height="16"
+                                focusable="false"
+                              >
+                                <path d="M9 4a3 3 0 11-3-3 3 3 0 013 3zM6.75 8h-1.5A2.25 2.25 0 003 10.25V15h6v-4.75A2.25 2.25 0 006.75 8zM13 8V6h-1v2h-2v1h2v2h1V9h2V8z"></path>
+                              </svg>
+                              Collegati
+                            </Button>
+                          </Col>
+
+                          {/* altri dati estraibili
+                            <p>{profile.email}</p>
+                        <p>{profile.username}</p>
+                        <p>{profile.area}</p>
+                        <p>{profile.createdAt}</p>
+                        <p>{profile.updatedAt}</p> */}
+                        </Row>
+                        <hr className="opacity-25" />
+                      </Container>
+                    </div>
+                  );
                 })}
             </Col>
           </Row>
