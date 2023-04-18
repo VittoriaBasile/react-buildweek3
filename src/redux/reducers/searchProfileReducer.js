@@ -1,12 +1,12 @@
-import { SEARCHED_PROFILE } from "../actions";
+import { GET_SEARCH_DATA } from "../actions";
 
 const initialState = {
-	content: null,
+	content: "",
 };
 
 const searchProfileReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SEARCHED_PROFILE:
+		case GET_SEARCH_DATA:
 			return {
 				...state,
 				content: action.payload,

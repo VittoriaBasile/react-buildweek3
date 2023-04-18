@@ -3,35 +3,32 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { editProfileAction } from '../redux/actions';
-import {getFormAction} from '../redux/actions';
+import { postExperiencesAction } from '../redux/actions';
+import {postFormAction} from '../redux/actions';
 
-function MyVerticallyCenteredModal(props) {
-  const [name, setName] = useState("")
-  const [surname, setSurname] = useState("")
-  const [email, setEmail] = useState("")
-  const [bio, setBio] = useState("")
-  const [title, setTitle] = useState("")
+function ModalExp(props) {
+  const [role, setRole] = useState("")
+  const [company, setCompany] = useState("")
+  const [startDate, setStartDate] = useState("")
+  const [endDate, setEndDate] = useState("")
+  const [description, setDescription] = useState("")
   const [area, setArea] = useState("")
-  // const newData = useSelector((state)=> state.editProfile.content)
-  // console.log(newData)
-  
-  const oldData = useSelector((state) => state.profile.content)
-  const newData = useSelector((state) => state.profileForm.content)
+  const oldData = useSelector((state)=> state.profile.content)
+  const newData = useSelector((state) => state.experiences.content)
+  const oldExp = useSelector((state) => state.allExp.content)
   const dispatch = useDispatch()
-  console.log("newdata: " + newData)
-
+    
   const handleSubmit = (e) =>{
     e.preventDefault()
-    dispatch(getFormAction({name, surname, email, title, bio, area}))
+    dispatch(postFormAction({role, company, startDate, endDate, description, area}))
   }
   
   useEffect(()=> {
     if(newData !== null){
-      dispatch(editProfileAction(newData))
+      dispatch(postExperiencesAction(newData, oldData._id))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[newData])
+    },[oldExp])
 
   
   return (
@@ -43,34 +40,33 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Inserisci le tue modifiche
+          Inserisci la tua esperienza
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Nome</Form.Label>
+              <Form.Label>Ruolo</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={oldData.nome}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="Ruolo"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
                 autoFocus
               />
-              <Form.Label>Cognome</Form.Label>
+              <Form.Label>Azienda</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Cognome"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
                 autoFocus
               />
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Data di inizio</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="nome@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
                 autoFocus
               />
             </Form.Group>
@@ -78,19 +74,19 @@ function MyVerticallyCenteredModal(props) {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Bio</Form.Label>
+              <Form.Label>Data di fine</Form.Label>
               <Form.Control 
-              as="textarea" 
+              type="date" 
               rows={3}
-              value={bio}
-                onChange={(e) => setBio(e.target.value)}
+              value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
               />
-              <Form.Label>Posizione Lavorativa</Form.Label>
+              <Form.Label>Descrizione</Form.Label>
               <Form.Control
-                type="text"
+                type="textarea"
                 placeholder="es.: Web Developer"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 autoFocus
               />
               <Form.Label>Città</Form.Label>
@@ -114,4 +110,4 @@ function MyVerticallyCenteredModal(props) {
     </Modal>
   );
 }
-export default MyVerticallyCenteredModal
+export default ModalExp

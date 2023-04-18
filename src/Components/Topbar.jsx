@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Col,
   Container,
@@ -9,6 +9,8 @@ import {
 } from "react-bootstrap";
 
 const Topbar = () => {
+  const [search, setSearch] = useState("")
+  
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid className="px-5 ">
@@ -43,6 +45,8 @@ const Topbar = () => {
                 </span>
                 <Form.Control
                   type="search"
+                  value={search}
+                  onChange={(e)=> setSearch(e.target.value)}
                   placeholder="    Search"
                   className="input-search me-2 border-0 rounded"
                   aria-label="Search"

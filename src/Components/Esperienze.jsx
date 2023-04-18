@@ -1,14 +1,30 @@
 import { Card, Col, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Carousel } from "react-bootstrap";
+import ModalExp from "./ModalExp"; 
+import { useDispatch, useSelector } from "react-redux";
+import { getExperiencesAction } from "../redux/actions";
 
 const Esperienze = () => {
+  const [modalShow, setModalShow] = useState(false);
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.profile.content)
+  const experiences = useSelector((state) => state.allExp.content)
+
+  useEffect(()=>{
+    dispatch(getExperiencesAction(user._id))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
+    <>
     <Card className="EsperienzaCard mt-3">
       <Row className="mx-1 my-2 align-items-center">
         <Col xs={10}>
           <Card.Title className="fs-5">Esperienza</Card.Title>
         </Col>
         <Col xs={1}>
-          <button className="btnModificaProfilo border-0 rounded-circle ">
+          <button className="btnModificaProfilo border-0 rounded-circle " onClick={() => setModalShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -24,38 +40,49 @@ const Esperienze = () => {
           </button>
         </Col>
       </Row>
-      <Row className="mx-1">
-        <Col xs={1}>
-          <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
-        </Col>
-        <Col xs={8} className="d-flex flex-column px-3 testoGray">
-          <span className="fw-semibold">lavoro</span>
-          <span className=" fw-light">azienda-tipo contratto</span>
-          <span className=" fw-light">durata esperienza-tempo passato dalla fine dell' esperienza</span>
-          <span className=" fw-light">luogo</span>
-        </Col>
+      {experiences.length > 0 && (
+        experiences.map((experience) => (
+            <>
+            <Row className="mx-1">
+            <Col xs={1}>
+              <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
+            </Col>
+            <Col xs={8} className="d-flex flex-column px-3 testoGray">
+              <span className="fw-semibold">{experience.role}</span>
+              <span className=" fw-light">{experience.company}</span>
+              <span className=" fw-light">{experience.description}</span>
+              <span className=" fw-light">{experience.startDate} / {experience.endDate}</span>
+              <span className=" fw-light">{experience.area}</span>
+            </Col>
 
-        <Col xs={1}>
-          <button className="btnModificaProfilo border-0 rounded-circle ">
-            <svg
-              fill="#666666"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              data-supported-dps="24x24"
-              class="mercado-match"
-              width="24"
-              height="24"
-              focusable="false"
-            >
-              <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
-            </svg>
-          </button>
-        </Col>
-      </Row>
-      <div className="px-3">
-        <hr className="testoGray" />
-      </div>
+            <Col xs={1}>
+              <button className="btnModificaProfilo border-0 rounded-circle ">
+                <svg
+                  fill="#666666"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  class="mercado-match"
+                  width="24"
+                  height="24"
+                  focusable="false"
+                >
+                  <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
+                </svg>
+              </button>
+            </Col>
+          </Row>
+          <div className="px-3">
+            <hr className="testoGray" />
+          </div>
+        </>
+        )
+        )
+      )}
     </Card>
+    <ModalExp show={modalShow} onHide={() => setModalShow(false)}/>
+    </>
+    
   );
 };
 export default Esperienze;
