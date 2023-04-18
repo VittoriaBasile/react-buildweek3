@@ -31,7 +31,7 @@ body {
 
 .footer-links:hover {
   text-decoration: underline;
-  font-weight: bold;
+
 }
 
 .footer-icon-links {
@@ -59,32 +59,40 @@ body {
   border-top-right-radius: 12px;
   cursor: pointer;
 }
+
 .headerCard {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   border-color: #e0dfdc;
 }
+
 .profileImg {
   margin-top: -112px;
   z-index: 4;
 }
+
 .info {
   color: #0a66c2;
 }
+
 .btnDisponibile {
   background-color: #0a66c2;
 }
+
 .miniHeaderCard {
   width: 420px;
   border-color: #e0dfdc;
 }
+
 .cardDettaglio {
   background-color: #dce6f1;
 }
+
 .btnAdd {
   border: 1px solid;
   border-color: #0a66c2;
 }
+
 .modificaFoto {
   width: 2rem;
   height: 2rem;
@@ -94,26 +102,33 @@ body {
   top: 2rem;
   right: 2rem;
 }
+
 .btnModificaProfilo {
   width: 45px;
   height: 45px;
   background-color: transparent;
 }
+
 .btnModificaProfilo:hover {
   background-color: #e0dfdc;
 }
+
 .carousel-control-prev-icon {
   display: none;
 }
+
 .carousel-control-next-icon {
   display: none;
 }
+
 .carousel-indicators .active {
   display: none;
 }
+
 .linkCard {
   text-decoration: none;
 }
+
 .linkCard:hover {
   text-decoration: underline;
 }
