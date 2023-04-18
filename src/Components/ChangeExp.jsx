@@ -3,10 +3,10 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { postExperiencesAction } from '../redux/actions';
+import { deleteExperiencesAction, postExperiencesAction } from '../redux/actions';
 import {postFormAction} from '../redux/actions';
 
-function ModalExp(props) {
+function ChangeExp(props) {
   const [role, setRole] = useState("")
   const [company, setCompany] = useState("")
   const [startDate, setStartDate] = useState("")
@@ -23,7 +23,13 @@ function ModalExp(props) {
     dispatch(postFormAction({role, company, startDate, endDate, description, area}))
     props.onHide()
   }
-  
+
+  const handleDelete = (e) =>{
+    e.preventDefault()
+    // dispatch(deleteExperiencesAction(oldData._id, props.id))
+
+  }
+
   useEffect(()=> {
     if(newData !== null){
       dispatch(postExperiencesAction(newData, oldData._id))
@@ -99,11 +105,14 @@ function ModalExp(props) {
                 autoFocus
               />
             </Form.Group>
-            <Modal.Footer>
-        <Button onClick={props.onHide}>Annulla</Button>
-        <Button variant="success" onClick={handleSubmit}>
-            Salva le modifiche
-          </Button>
+            <Modal.Footer className="justify-content-between">
+                <Button variant="danger" onClick={handleDelete}>Elimina questa esperienza</Button>
+                <div>
+                    <Button className="mx-1" onClick={props.onHide}>Annulla</Button>
+                    <Button variant="success" onClick={handleSubmit}>
+                        Salva le modifiche
+                    </Button>
+                </div>
       </Modal.Footer>
           </Form>
         </Modal.Body>
@@ -111,4 +120,4 @@ function ModalExp(props) {
     </Modal>
   );
 }
-export default ModalExp
+export default ChangeExp

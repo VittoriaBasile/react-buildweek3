@@ -4,9 +4,13 @@ import { Button, Carousel } from "react-bootstrap";
 import ModalExp from "./ModalExp"; 
 import { useDispatch, useSelector } from "react-redux";
 import { getExperiencesAction } from "../redux/actions";
+import ChangeExp from "./ChangeExp";
 
 const Esperienze = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [change, setChange] = useState(false);
+  // const [expData, setExpData] = useState({});
+
   const dispatch = useDispatch()
   const user = useSelector((state) => state.profile.content)
   const experiences = useSelector((state) => state.allExp.content)
@@ -42,7 +46,9 @@ const Esperienze = () => {
       </Row>
       {experiences.length > 0 && (
         experiences.map((experience) => (
+          
             <>
+            {/* {setExpData(experience._id)} */}
             <Row className="mx-1">
             <Col xs={1}>
               <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
@@ -56,7 +62,7 @@ const Esperienze = () => {
             </Col>
 
             <Col xs={1}>
-              <button className="btnModificaProfilo border-0 rounded-circle ">
+              <button className="btnModificaProfilo border-0 rounded-circle " onClick={() => setChange(true)}>
                 <svg
                   fill="#666666"
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +81,14 @@ const Esperienze = () => {
           <div className="px-3">
             <hr className="testoGray" />
           </div>
+          <ChangeExp show={change} onHide={() => setChange(false)} />
         </>
         )
         )
       )}
     </Card>
     <ModalExp show={modalShow} onHide={() => setModalShow(false)}/>
+    
     </>
     
   );

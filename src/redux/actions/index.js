@@ -5,6 +5,8 @@ export const GET_FORM_DATA = "GET_FORM_DATA";
 export const GET_SEARCH_DATA = "GET_SEARCH_DATA";
 export const POST_EXPERIENCES = "POST_EXPERIENCES";
 export const ALL_EXPERIENCES = "ALL_EXPERIENCES";
+export const CHANGE_EXP = "CHANGE_EXP";
+export const DELETE_EXP = "DELETE_EXP";
 export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
 export const getSearchAction = (content) => ({ type: GET_SEARCH_DATA, payload: content });
@@ -125,6 +127,26 @@ export const getExperiencesAction = (userID) => {
 			if (response.ok) {
 				const allExperiences = await response.json();
 				dispatch({ type: ALL_EXPERIENCES, payload: allExperiences });
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+export const deleteExperiencesAction = (userID, expID) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(generalProfileEndpoint + { userID } + "/experiences/" + { expID }, {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				},
+			});
+			if (response.ok) {
+				const data = await response.json();
+				dispatch({ type: DELETE_EXP, payload: data });
 			}
 		} catch (error) {
 			console.log(error);
