@@ -6,6 +6,7 @@ import editProfileReducer from "../reducers/editProfileReducer";
 import profileReducer from "../reducers/profileReducer";
 import searchProfileReducer from "../reducers/searchProfileReducer";
 import allProfileReducer from "../reducers/allProfileReducer";
+import profileFormReducer from "../reducers/ProfileFormReducer";
 
 const persistConfig = {
 	key: "root",
@@ -18,10 +19,11 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-	editProfileReducer: editProfileReducer,
+	editProfile: editProfileReducer,
 	profile: profileReducer,
 	searchProfile: searchProfileReducer,
 	allProfile: allProfileReducer,
+	profileForm: profileFormReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

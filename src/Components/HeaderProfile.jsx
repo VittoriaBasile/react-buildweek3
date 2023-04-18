@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
+import MyVerticallyCenteredModal from "./ModalProfileEdit"; //import fatto correttamente e funziona tutto, non sappiamo ancora cosa vuole dalla vita.
+
 
 const HeaderProfile = ({ profileData }) => {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <>
       <Card className="headerCard border mt-4">
@@ -45,7 +50,7 @@ const HeaderProfile = ({ profileData }) => {
               </div>
               <Row className="">
                 <div className="d-flex justify-content-end">
-                  <button className="btnModificaProfilo border-0 rounded-circle ">
+                  <button className="btnModificaProfilo border-0 rounded-circle " onClick={() => setModalShow(true)}>
                     <svg
                       fill="#666666"
                       xmlns="http://www.w3.org/2000/svg"
@@ -187,6 +192,10 @@ const HeaderProfile = ({ profileData }) => {
           </Carousel>
         </Card.Body>
       </Card>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };
