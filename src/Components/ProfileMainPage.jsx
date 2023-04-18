@@ -31,7 +31,7 @@ const ProfileMainPage = () => {
             </Col>
             <Col
               md={2}
-              className="mx-2 d-none d-md-block  border mt-4 pt-4 ps-1 rounded-3 bg-white h-75"
+              className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75"
             >
               <h6 className="ps-3">Persone che potresti conoscere</h6>
               {/* sezione secondaria, notizie e suggerimenti su sidebar, inserire qui a cascata i vari componenti */}
@@ -39,9 +39,9 @@ const ProfileMainPage = () => {
               {allProfile &&
                 allProfile.slice(0, 5).map((profile) => {
                   return (
-                    <div className="mt-3">
+                    <div className="mt-3 py-2">
                       <Container className="  rounded-3 ">
-                        <Row className="border-top pt-2">
+                        <Row className="">
                           <Col xs={3}>
                             {/* img */}
                             <img
