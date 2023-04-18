@@ -2,7 +2,7 @@ import { Card, Col, Row } from "react-bootstrap";
 
 const Esperienze = () => {
   return (
-    <Card className="EsperienzaCard">
+    <Card className="EsperienzaCard mt-3">
       <Row className="mx-1 my-2 align-items-center">
         <Col xs={10}>
           <Card.Title className="fs-5">Esperienza</Card.Title>
