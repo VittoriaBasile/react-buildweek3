@@ -20,7 +20,9 @@ const MyFooter = () => (
               </li>
               <li className="pb-3">
                 <a className="footer-links" href="#">
-                  Privacy e condizioni
+                  <DropdownToggle className="bg-transparent text-dark border-0 p-0">
+                    Privacy e condizioni
+                  </DropdownToggle>
                 </a>
               </li>
               <li className="pb-3">
