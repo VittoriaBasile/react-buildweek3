@@ -4,19 +4,8 @@ const Esperienze = () => {
   return (
     <Card className="EsperienzaCard">
       <Row className="mx-1 my-2 align-items-center">
-        <Col xs={9}>
+        <Col xs={10}>
           <Card.Title className="fs-5">Esperienza</Card.Title>
-        </Col>
-      </Row>
-      <Row className="mx-1">
-        <Col xs={1}>
-          <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
-        </Col>
-        <Col xs={8} className="d-flex flex-column px-3 testoGray">
-          <span className="fw-semibold">lavoro</span>
-          <span className=" fw-light">azienda-tipo contratto</span>
-          <span className=" fw-light">durata esperienza-tempo passato dalla fine dell' esperienza</span>
-          <span className=" fw-light">luogo</span>
         </Col>
         <Col xs={1}>
           <button className="btnModificaProfilo border-0 rounded-circle ">
@@ -34,6 +23,18 @@ const Esperienze = () => {
             </svg>
           </button>
         </Col>
+      </Row>
+      <Row className="mx-1">
+        <Col xs={1}>
+          <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
+        </Col>
+        <Col xs={8} className="d-flex flex-column px-3 testoGray">
+          <span className="fw-semibold">lavoro</span>
+          <span className=" fw-light">azienda-tipo contratto</span>
+          <span className=" fw-light">durata esperienza-tempo passato dalla fine dell' esperienza</span>
+          <span className=" fw-light">luogo</span>
+        </Col>
+
         <Col xs={1}>
           <button className="btnModificaProfilo border-0 rounded-circle ">
             <svg
