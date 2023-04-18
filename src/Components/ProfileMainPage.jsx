@@ -41,7 +41,7 @@ const ProfileMainPage = () => {
                   return (
                     <div className="mt-3">
                       <Container className="  rounded-3 ">
-                        <Row className="">
+                        <Row className="border-top pt-2">
                           <Col xs={3}>
                             {/* img */}
                             <img
