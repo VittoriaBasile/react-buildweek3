@@ -35,7 +35,6 @@ body {
 
 .footer-links:hover {
   text-decoration: underline;
-
 }
 
 .footer-icon-links {
@@ -146,6 +145,14 @@ body {
   color: #666666;
 }
 
+.btnModificaMiniCard {
+  width: 36px;
+  height: 33px;
+  background-color: transparent;
+}
+.btnModificaMiniCard:hover {
+  background-color: #9db3c8;
+}
 .EsperienzaCard {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
