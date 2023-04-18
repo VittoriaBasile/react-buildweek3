@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import MyVerticallyCenteredModal from "./ModalProfileEdit"; //import fatto correttamente e funziona tutto, non sappiamo ancora cosa vuole dalla vita.
 
-
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -103,10 +102,10 @@ const HeaderProfile = ({ profileData }) => {
 
                 <div style={{ width: "10px" }}>
                   <div className="d-flex justify-content-end">
-                    <Button className="border-0 bg-transparent text-secondary">
+                    <Button className="btnModificaMiniCard border-0 rounded-circle">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
+                        viewBox="0 0 20 20"
                         data-supported-dps="16x16"
                         fill="#585c60"
                         class="mercado-match"
@@ -192,10 +191,7 @@ const HeaderProfile = ({ profileData }) => {
           </Carousel>
         </Card.Body>
       </Card>
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 };
