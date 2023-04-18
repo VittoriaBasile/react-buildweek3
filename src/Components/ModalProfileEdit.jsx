@@ -24,7 +24,6 @@ function MyVerticallyCenteredModal(props) {
   const handleSubmit = (e) =>{
     e.preventDefault()
     dispatch(getFormAction({name, surname, email, title, bio, area}))
-    
   }
   
   useEffect(()=> {
@@ -32,7 +31,7 @@ function MyVerticallyCenteredModal(props) {
       dispatch(editProfileAction(newData))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[newData])
 
   
   return (
