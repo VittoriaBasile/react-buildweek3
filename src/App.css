@@ -16,6 +16,10 @@ body {
   color: rgb(93, 93, 93);
 }
 
+.nav-link {
+  padding: 0;
+}
+
 .link-nav:hover {
   color: black;
 }
