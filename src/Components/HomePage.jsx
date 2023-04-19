@@ -11,7 +11,6 @@ import {
 import { Dropdown } from "bootstrap";
 import { Link } from "react-router-dom";
 import FooterHomePage from "./FooterHomePage";
-import InputPostHome from "./InputPostHome";
 import HomeProfileSection from "./HomeProfileSection";
 
 const HomePage = () => {
