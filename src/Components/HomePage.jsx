@@ -1,0 +1,121 @@
+import React from "react";
+import Topbar from "./Topbar";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  NavDropdown,
+  Row,
+} from "react-bootstrap";
+import { Dropdown } from "bootstrap";
+import { Link } from "react-router-dom";
+import FooterHomePage from "./FooterHomePage";
+import InputPostHome from "./InputPostHome";
+
+const HomePage = () => {
+  return (
+    <Container fluid className="px-0">
+      <Topbar />
+
+      <Container>
+        <Row className="pt-4 gap-2">
+          {/* prima col principale*/}
+          <Col xs={3} className="px-0">
+            {/* container profile */}
+            <Col className="bg-white rounded-3 p-1">container profile</Col>
+            {/* container scopri di più */}
+            <Col className="bg-white rounded-3 p-2 my-3 fw-bold ">
+              <Col>
+                <a href="#" className="text-decoration-none">
+                  Gruppi
+                </a>
+              </Col>
+              <Col>
+                <a href="#" className="text-decoration-none">
+                  Eventi
+                </a>
+              </Col>
+              <Col>
+                <a href="#" className="text-decoration-none">
+                  Hashtag seguiti
+                </a>
+              </Col>
+              <Col className="text-center border-top py-2 mt-2 ">
+                <a href="#" className="link-nav text-decoration-none">
+                  Scopri di più
+                </a>
+              </Col>
+            </Col>
+          </Col>
+
+          {/* seconda col principale*/}
+          <Col>
+            {/* search */}
+            <InputPostHome />
+            {/* separè dropdown */}
+            <Col xs={12} className="">
+              <Row className="pt-2 px-3">
+                <Col xs={8}>
+                  <hr className="flex-grow-50" />
+                </Col>
+                <Col className="d-flex ">
+                  <p className=" opacity-75 pe-2 ">ordina per </p>
+                  <NavDropdown
+                    title="Principali"
+                    className="link-nav fw-bold"
+                  />
+                </Col>
+              </Row>
+            </Col>
+            {/* posts */}
+            <Col className="bg-white rounded-3 p-1">posts</Col>
+          </Col>
+
+          {/* terza col principale*/}
+          <Col xs={3} className="px-0">
+            {/* linkedin notizie */}
+            <Col className="bg-white rounded-3 p-1">
+              <Col className="d-flex justify-content-between align-items-center px-2 py-2">
+                <h6 className="fw-bold">Linkedin Notizie</h6>
+                ℹ️
+              </Col>
+              <Col>{/* inserire qui il componente notizie */}</Col>
+              <Col>
+                <NavDropdown
+                  title="Visualizza altro"
+                  className="link-nav fw-bold px-4"
+                />
+              </Col>
+            </Col>
+            {/* container annuncio */}
+            <Col className="bg-white rounded-3 p-1 my-3">
+              <Col className="d-flex justify-content-end pe-2">
+                <p className="fw-bold">Annuncio </p>
+                <p>...</p>
+              </Col>
+              <p className="text-center px-3 opacity-50">
+                Segui i nostri valori e partners seguendo la nostra pagina.
+              </p>
+              <img src="" alt="" />
+              <img src="" alt="" />
+              <p className="fw-bold text-center">Entra nel mondo Audi Italia</p>
+              <Col className="justify-content-center d-flex pb-3">
+                <Button
+                  className="text-primary border-primary fw-bold rounded-pill"
+                  variant="outlined "
+                >
+                  Segui
+                </Button>
+              </Col>
+            </Col>
+            {/* mini footer */}
+            <FooterHomePage />
+          </Col>
+        </Row>
+      </Container>
+    </Container>
+  );
+};
+
+export default HomePage;

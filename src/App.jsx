@@ -1,17 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Topbar from "./components/Topbar";
-import MyFooter from "./components/MyFooter";
 import ProfileMainPage from "./components/ProfileMainPage";
+import HomePage from "./components/HomePage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Topbar />
-      <ProfileMainPage />
-      <MyFooter />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile/" element={<ProfileMainPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

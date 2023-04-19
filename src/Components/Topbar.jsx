@@ -7,14 +7,15 @@ import {
   NavDropdown,
   Navbar,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
-  const [search, setSearch] = useState("")
-  
+  const [search, setSearch] = useState("");
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid className="px-5 ">
-        <Container className="d-flex px-5 align-items-center">
+        <Container className="d-flex px-1 align-items-center">
           <Navbar.Brand href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,35 +47,39 @@ const Topbar = () => {
                 <Form.Control
                   type="search"
                   value={search}
-                  onChange={(e)=> setSearch(e.target.value)}
+                  onChange={(e) => setSearch(e.target.value)}
                   placeholder="    Search"
                   className="input-search me-2 border-0 rounded"
                   aria-label="Search"
                 />
               </Form>
             </Col>
+
             <Nav
               className="ms-auto my-2 my-lg-0 gap-2 align-items-center"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1" className="link-nav ">
-                <div className="d-flex flex-column align-items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    fill="currentColor"
-                    class="mercado-match"
-                    width="24"
-                    height="24"
-                    focusable="false"
-                  >
-                    <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
-                  </svg>
-                  Home
-                </div>
-              </Nav.Link>
+              <Link to={"/"} className="text-decoration-none">
+                <Nav.Link href="#action1" className="link-nav ">
+                  <div className="d-flex flex-column align-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      fill="currentColor"
+                      class="mercado-match"
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+                    </svg>
+                    Home
+                  </div>
+                </Nav.Link>
+              </Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
@@ -92,6 +97,7 @@ const Topbar = () => {
                   Rete
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
@@ -110,6 +116,7 @@ const Topbar = () => {
                   Lavoro
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
@@ -127,6 +134,7 @@ const Topbar = () => {
                   Messaggistica
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
@@ -154,7 +162,11 @@ const Topbar = () => {
                     Messaggistica
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Notifiche</NavDropdown.Item>
+                  <Link to={"/profile/"} className="text-decoration-none">
+                    <NavDropdown.Item href="#action5">
+                      Il tuo profilo
+                    </NavDropdown.Item>
+                  </Link>
                 </NavDropdown>
               </div>
 
