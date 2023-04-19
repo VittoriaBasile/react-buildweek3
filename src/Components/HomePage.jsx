@@ -78,7 +78,7 @@ const HomePage = () => {
           <Col xs={3} className="px-0">
             {/* linkedin notizie */}
             <Col className="bg-white rounded-3 p-1">
-              <Col className="d-flex justify-content-between align-items-center px-2 py-2">
+              <Col className="d-flex justify-content-between  px-2 py-2">
                 <h6 className="fw-bold">Linkedin Notizie</h6>
                 ℹ️
               </Col>
