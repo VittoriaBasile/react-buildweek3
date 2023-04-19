@@ -1,21 +1,37 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
-import { useEffect } from "react";
+import { Button, Col, Container, Form, FormControl, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allProfileFetchAction, profileFetchAction } from "../redux/actions";
+import {
+  allProfileFetchAction,
+  getPostsAction,
+  newPostAction,
+  postPostAction,
+  profileFetchAction,
+} from "../redux/actions";
 import HeaderProfile from "./HeaderProfile";
 import Esperienze from "./Esperienze";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
 const ProfileMainPage = () => {
+  const [newPost, setNewPost] = useState("");
+
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
   const allProfile = useSelector((state) => state.allProfile.content);
-
+  const allPosts = useSelector((state) => state.allPosts.content);
+  const newData = useSelector((state) => state.newPost.content);
   useEffect(() => {
     dispatch(profileFetchAction());
     dispatch(allProfileFetchAction());
+    dispatch(getPostsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(newPostAction(newPost));
+    dispatch(postPostAction(newData));
+  };
 
   return (
     profile && (
@@ -26,11 +42,20 @@ const ProfileMainPage = () => {
               {/* sezione principale con profile header, inserire qui a cascata i vari componenti */}
               <HeaderProfile profileData={profile} />
               <Esperienze />
+              <Form>
+                <FormControl type="textarea" value={newPost} onChange={(e) => setNewPost(e.target.value)} />
+                <Button onClick={handleSubmit}>post</Button>
+              </Form>
+              <div>
+                {allPosts.length > 0 &&
+                  allPosts.map((post) => (
+                    <div key={post._id}>
+                      <p>{post.text}</p>
+                    </div>
+                  ))}
+              </div>
             </Col>
-            <Col
-              md={2}
-              className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75"
-            >
+            <Col md={2} className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75">
               <h6 className="ps-3">Persone che potresti conoscere</h6>
               {/* sezione secondaria, notizie e suggerimenti su sidebar, inserire qui a cascata i vari componenti */}
               {/* qui sotto il map che pesca tutti i profili */}
@@ -42,11 +67,7 @@ const ProfileMainPage = () => {
                         <Row className="">
                           <Col xs={3}>
                             {/* img */}
-                            <img
-                              src={profile.image}
-                              alt="..."
-                              className="img-fluid rounded-circle "
-                            />{" "}
+                            <img src={profile.image} alt="..." className="img-fluid rounded-circle " />{" "}
                           </Col>
                           <Col xs={8} className="px-0">
                             {/* nome */}
@@ -91,9 +112,7 @@ const ProfileMainPage = () => {
                   );
                 })}
               <div className="border-top mt-5">
-                <DropdownToggle className="bg-transparent text-dark border-0 w-100">
-                  Visualizza altro
-                </DropdownToggle>
+                <DropdownToggle className="bg-transparent text-dark border-0 w-100">Visualizza altro</DropdownToggle>
               </div>
             </Col>
           </Row>
