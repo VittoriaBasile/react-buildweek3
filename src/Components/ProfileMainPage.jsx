@@ -11,6 +11,8 @@ import {
 import HeaderProfile from "./HeaderProfile";
 import Esperienze from "./Esperienze";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
+import Topbar from "./Topbar";
+import MyFooter from "./MyFooter";
 
 const ProfileMainPage = () => {
   const [newPost, setNewPost] = useState("");
@@ -37,6 +39,7 @@ const ProfileMainPage = () => {
   return (
     profile && (
       <>
+        <Topbar />
         <Container fluid className="bg-mainpage">
           <Row className="bg-mainpage px-5 gx-2 justify-content-center">
             <Col md={7} className="mx-2">
@@ -118,6 +121,7 @@ const ProfileMainPage = () => {
             </Col>
           </Row>
         </Container>
+        <MyFooter />
       </>
     )
   );

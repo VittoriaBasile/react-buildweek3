@@ -7,26 +7,29 @@ import {
   NavDropdown,
   Navbar,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
-  const [search, setSearch] = useState("")
-  
+  const [search, setSearch] = useState("");
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid className="px-5 ">
-        <Container className="d-flex px-5 align-items-center">
-          <Navbar.Brand href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="34"
-              height="34"
-              fillRule="currentColor"
-              className="bi bi-linkedin text-primary"
-              viewBox="0 0 16 16"
-            >
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-            </svg>
-          </Navbar.Brand>
+        <Container className="d-flex px-1 align-items-center">
+          <Link to={"/"}>
+            <Navbar.Brand href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="34"
+                height="34"
+                fill="currentColor"
+                class="bi bi-linkedin text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+              </svg>
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle className="ms-auto" aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Col xs={2}>
@@ -36,7 +39,7 @@ const Topbar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
                     height="14"
-                    fillRule="currentColor"
+                    fill="currentColor"
                     className="bi bi-search mt-2 ms-2 "
                     viewBox="0 0 16 16"
                   >
@@ -46,43 +49,47 @@ const Topbar = () => {
                 <Form.Control
                   type="search"
                   value={search}
-                  onChange={(e)=> setSearch(e.target.value)}
+                  onChange={(e) => setSearch(e.target.value)}
                   placeholder="    Search"
                   className="input-search me-2 border-0 rounded"
                   aria-label="Search"
                 />
               </Form>
             </Col>
+
             <Nav
               className="ms-auto my-2 my-lg-0 gap-2 align-items-center"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1" className="link-nav ">
-                <div className="d-flex flex-column align-items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    fillRule="currentColor"
-                    className="mercado-match"
-                    width="24"
-                    height="24"
-                    focusable="false"
-                  >
-                    <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
-                  </svg>
-                  Home
-                </div>
-              </Nav.Link>
+              <Link to={"/"} className="text-decoration-none">
+                <Nav.Link href="#action1" className="link-nav ">
+                  <div className="d-flex flex-column align-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      data-supported-dps="24x24"
+                      fill="currentColor"
+                      class="mercado-match"
+                      width="24"
+                      height="24"
+                      focusable="false"
+                    >
+                      <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+                    </svg>
+                    Home
+                  </div>
+                </Nav.Link>
+              </Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fillRule="currentColor"
-                    className="mercado-match"
+                    fill="currentColor"
+                    class="mercado-match"
                     width="24"
                     height="24"
                     focusable="false"
@@ -92,14 +99,15 @@ const Topbar = () => {
                   Rete
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fillRule="currentColor"
-                    className="mercado-match"
+                    fill="currentColor"
+                    class="mercado-match"
                     width="24"
                     height="24"
                     focusable="false"
@@ -110,14 +118,15 @@ const Topbar = () => {
                   Lavoro
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fillRule="currentColor"
-                    className="mercado-match"
+                    fill="currentColor"
+                    class="mercado-match"
                     width="24"
                     height="24"
                     focusable="false"
@@ -127,14 +136,15 @@ const Topbar = () => {
                   Messaggistica
                 </div>
               </Nav.Link>
+
               <Nav.Link href="#action2" className="link-nav ">
                 <div className="d-flex flex-column align-items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     data-supported-dps="24x24"
-                    fillRule="currentColor"
-                    className="mercado-match"
+                    fill="currentColor"
+                    class="mercado-match"
                     width="24"
                     height="24"
                     focusable="false"
@@ -154,7 +164,11 @@ const Topbar = () => {
                     Messaggistica
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Notifiche</NavDropdown.Item>
+                  <Link to={"/profile/"} className="text-decoration-none">
+                    <NavDropdown.Item href="#action5">
+                      Il tuo profilo
+                    </NavDropdown.Item>
+                  </Link>
                 </NavDropdown>
               </div>
 
@@ -163,8 +177,8 @@ const Topbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   data-supported-dps="24x24"
-                  fillRule="currentColor"
-                  className="mercado-match"
+                  fill="currentColor"
+                  class="mercado-match"
                   width="24"
                   height="24"
                   focusable="false"
