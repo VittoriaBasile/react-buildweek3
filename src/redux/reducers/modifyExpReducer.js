@@ -1,12 +1,12 @@
-import { CHANGE_EXP } from "../actions";
+import { PUT_EXPERIENCES } from "../actions";
 
 const initialState = {
 	content: null,
 };
 
-const changeNdeleteReducer = (state = initialState, action) => {
+const modifyExpReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case CHANGE_EXP:
+		case PUT_EXPERIENCES:
 			return {
 				...state,
 				content: action.payload,
@@ -16,4 +16,4 @@ const changeNdeleteReducer = (state = initialState, action) => {
 	}
 };
 
-export default changeNdeleteReducer;
+export default modifyExpReducer;

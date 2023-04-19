@@ -19,7 +19,6 @@ function MyVerticallyCenteredModal(props) {
   const oldData = useSelector((state) => state.profile.content)
   const newData = useSelector((state) => state.profileForm.content)
   const dispatch = useDispatch()
-  console.log("newdata: " + newData)
 
   const handleSubmit = (e) =>{
     e.preventDefault()

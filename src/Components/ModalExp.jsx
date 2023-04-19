@@ -2,8 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { postExperiencesAction } from '../redux/actions';
+import { useState } from 'react';
+import { getExperiencesAction, postExperiencesAction } from '../redux/actions';
 import {postFormAction} from '../redux/actions';
 
 function ModalExp(props) {
@@ -15,22 +15,16 @@ function ModalExp(props) {
   const [area, setArea] = useState("")
   const oldData = useSelector((state)=> state.profile.content)
   const newData = useSelector((state) => state.experiences.content)
-  const oldExp = useSelector((state) => state.allExp.content)
+
   const dispatch = useDispatch()
     
   const handleSubmit = (e) =>{
     e.preventDefault()
     dispatch(postFormAction({role, company, startDate, endDate, description, area}))
+    dispatch(postExperiencesAction(newData, oldData._id))
+    dispatch(getExperiencesAction(newData._id))
     props.onHide()
   }
-  
-  useEffect(()=> {
-    if(newData !== null){
-      dispatch(postExperiencesAction(newData, oldData._id))
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[oldExp])
-
   
   return (
     <Modal

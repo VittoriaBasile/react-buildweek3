@@ -10,8 +10,6 @@ const ProfileMainPage = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
   const allProfile = useSelector((state) => state.allProfile.content);
-  console.log(allProfile);
-  console.log(profile);
 
   useEffect(() => {
     dispatch(profileFetchAction());
@@ -39,7 +37,7 @@ const ProfileMainPage = () => {
               {allProfile &&
                 allProfile.slice(0, 5).map((profile) => {
                   return (
-                    <div className="mt-3 py-2">
+                    <div key={profile._id} className="mt-3 py-2">
                       <Container className="  rounded-3 ">
                         <Row className="">
                           <Col xs={3}>

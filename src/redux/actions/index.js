@@ -7,8 +7,11 @@ export const POST_EXPERIENCES = "POST_EXPERIENCES";
 export const ALL_EXPERIENCES = "ALL_EXPERIENCES";
 export const CHANGE_EXP = "CHANGE_EXP";
 export const DELETE_EXP = "DELETE_EXP";
+export const PUT_EXPERIENCES = "PUT_EXPERIENCES";
+
 export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
+export const putFormAction = (content) => ({ type: PUT_EXPERIENCES, payload: content });
 export const getSearchAction = (content) => ({ type: GET_SEARCH_DATA, payload: content });
 
 const generalProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/";
@@ -27,7 +30,6 @@ export const profileFetchAction = () => {
 			if (response.ok) {
 				const data = await response.json();
 				dispatch({ type: PROFILE, payload: data });
-				console.log(data);
 			}
 		} catch (error) {
 			console.log(error);
@@ -66,7 +68,6 @@ export const allProfileFetchAction = () => {
 			if (response.ok) {
 				const data = await response.json();
 				dispatch({ type: ALL_PROFILE, payload: data });
-				console.log(data);
 			}
 		} catch (error) {
 			console.log(error);
@@ -98,7 +99,7 @@ export const editProfileAction = (newData) => {
 export const postExperiencesAction = (newExp, userID) => {
 	return async (dispatch) => {
 		try {
-			const response = await fetch(generalProfileEndpoint + { userID } + "/experiences", {
+			const response = await fetch(generalProfileEndpoint + userID + "/experiences", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -135,9 +136,9 @@ export const getExperiencesAction = (userID) => {
 };
 
 export const deleteExperiencesAction = (userID, expID) => {
-	return async (dispatch) => {
+	return async () => {
 		try {
-			const response = await fetch(generalProfileEndpoint + { userID } + "/experiences/" + { expID }, {
+			const response = await fetch(generalProfileEndpoint + userID + "/experiences/" + expID, {
 				method: "DELETE",
 				headers: {
 					"Content-Type": "application/json",
@@ -145,8 +146,28 @@ export const deleteExperiencesAction = (userID, expID) => {
 				},
 			});
 			if (response.ok) {
-				const data = await response.json();
-				dispatch({ type: DELETE_EXP, payload: data });
+				alert("Esperienza eliminata!");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+export const putExperienceAction = (newData, userID, expID) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(generalProfileEndpoint + userID + "/experiences/" + expID, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				},
+				body: JSON.stringify(newData),
+			});
+			if (response.ok) {
+				const newExpData = await response.json();
+				dispatch({ type: CHANGE_EXP, payload: newExpData });
 			}
 		} catch (error) {
 			console.log(error);

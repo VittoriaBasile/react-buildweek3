@@ -10,6 +10,7 @@ import profileFormReducer from "../reducers/ProfileFormReducer";
 import experienceReducer from "../reducers/experienceReducer";
 import allExpReducer from "../reducers/allExpReducer";
 import changeNdeleteReducer from "../reducers/changeNdeleteReducer";
+import modifyExpReducer from "../reducers/modifyExpReducer";
 
 const persistConfig = {
 	key: "root",
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
 	experiences: experienceReducer,
 	allExp: allExpReducer,
 	changeDelete: changeNdeleteReducer,
+	modifyExp: modifyExpReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
