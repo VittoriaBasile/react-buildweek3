@@ -31,6 +31,7 @@ const ProfileMainPage = () => {
     e.preventDefault();
     dispatch(newPostAction(newPost));
     dispatch(postPostAction(newData));
+    dispatch(getPostsAction());
   };
 
   return (
