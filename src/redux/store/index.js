@@ -12,40 +12,38 @@ import allExpReducer from "../reducers/allExpReducer";
 import changeNdeleteReducer from "../reducers/changeNdeleteReducer";
 import modifyExpReducer from "../reducers/modifyExpReducer";
 import allPostsReducer from "../reducers/allPostsReducer";
-import newPostReducer from "../reducers/newPostReducer";
 import publicPostReducer from "../reducers/publicPostReducer";
 
 const persistConfig = {
-	key: "root",
-	storage,
-	transforms: [
-		encryptTransform({
-			secretKey: process.env.REACT_APP_SECRET_KEY,
-		}),
-	],
+  key: "root",
+  storage,
+  transforms: [
+    encryptTransform({
+      secretKey: process.env.REACT_APP_SECRET_KEY,
+    }),
+  ],
 };
 
 const rootReducer = combineReducers({
-	editProfile: editProfileReducer,
-	profile: profileReducer,
-	searchProfile: searchProfileReducer,
-	allProfile: allProfileReducer,
-	profileForm: profileFormReducer,
-	experiences: experienceReducer,
-	allExp: allExpReducer,
-	changeDelete: changeNdeleteReducer,
-	modifyExp: modifyExpReducer,
-	allPosts: allPostsReducer,
-	newPost: newPostReducer,
-	publicPost: publicPostReducer,
+  editProfile: editProfileReducer,
+  profile: profileReducer,
+  searchProfile: searchProfileReducer,
+  allProfile: allProfileReducer,
+  profileForm: profileFormReducer,
+  experiences: experienceReducer,
+  allExp: allExpReducer,
+  changeDelete: changeNdeleteReducer,
+  modifyExp: modifyExpReducer,
+  allPosts: allPostsReducer,
+  publicPost: publicPostReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-	// reducer
-	reducer: persistedReducer,
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
+  // reducer
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export const persistor = persistStore(store);

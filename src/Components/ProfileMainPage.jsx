@@ -21,7 +21,6 @@ const ProfileMainPage = () => {
   const profile = useSelector((state) => state.profile.content);
   const allProfile = useSelector((state) => state.allProfile.content);
   const allPosts = useSelector((state) => state.allPosts.content);
-  const newData = useSelector((state) => state.newPost.content);
   useEffect(() => {
     dispatch(profileFetchAction());
     dispatch(allProfileFetchAction());
@@ -31,9 +30,7 @@ const ProfileMainPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(newPostAction(newPost));
-    dispatch(postPostAction(newData));
-    dispatch(getPostsAction());
+    dispatch(postPostAction(newPost));
   };
 
   return (
