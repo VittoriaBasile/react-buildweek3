@@ -3,42 +3,40 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { deleteExperiencesAction, postExperiencesAction } from '../redux/actions';
-import {postFormAction} from '../redux/actions';
+import { deleteExperiencesAction, putFormAction, putExperienceAction, getExperiencesAction } from '../redux/actions';
 
 function ChangeExp(props) {
-  const [role, setRole] = useState("")
-  const [company, setCompany] = useState("")
-  const [startDate, setStartDate] = useState("")
-  const [endDate, setEndDate] = useState("")
-  const [description, setDescription] = useState("")
-  const [area, setArea] = useState("")
+  const [role, setRole] = useState(props.experience.role)
+  const [company, setCompany] = useState(props.experience.company)
+  const [startDate, setStartDate] = useState(props.experience.startDate)
+  const [endDate, setEndDate] = useState(props.experience.endDate)
+  const [description, setDescription] = useState(props.experience.description)
+  const [area, setArea] = useState(props.experience.area)
+
+
   const oldData = useSelector((state)=> state.profile.content)
-  const newData = useSelector((state) => state.experiences.content)
-  const oldExp = useSelector((state) => state.allExp.content)
+
+  const newData = useSelector((state) => state.modifyExp.content)//arriva un maledetto oject object
+
   const dispatch = useDispatch()
-    
+
   const handleSubmit = (e) =>{
     e.preventDefault()
-    dispatch(postFormAction({role, company, startDate, endDate, description, area}))
+    dispatch(putFormAction({role, company, startDate, endDate, description, area}))
     props.onHide()
+    dispatch(putExperienceAction( newData, oldData._id, props.id))
+    dispatch(getExperiencesAction(oldData._id))
   }
-
+  
   const handleDelete = (e) =>{
     e.preventDefault()
-    // dispatch(deleteExperiencesAction(oldData._id, props.id))
-
+    alert(`Sei sicuro di voler eliminare questa esperienza: ${props.experience.role} presso ${props.experience.company}?`)
+    dispatch(deleteExperiencesAction(oldData._id, props.id))
   }
 
-  useEffect(()=> {
-    if(newData !== null){
-      dispatch(postExperiencesAction(newData, oldData._id))
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[oldExp])
-
-  
   return (
+  <>
+  
     <Modal
       {...props}
       size="lg"
@@ -56,7 +54,7 @@ function ChangeExp(props) {
               <Form.Label>Ruolo</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Ruolo"
+                placeholder="Nome"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 autoFocus
@@ -118,6 +116,8 @@ function ChangeExp(props) {
         </Modal.Body>
       
     </Modal>
+  </>
+    
   );
 }
 export default ChangeExp
