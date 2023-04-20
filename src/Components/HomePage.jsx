@@ -152,18 +152,22 @@ const HomePage = () => {
 
             {/* separè dropdown */}
             <Col xs={12} className="">
-              <Row className="pt-2 px-3">
-                <Col xs={8}>
-                  <hr className="flex-grow-50" />
-                </Col>
-                <Col className="d-flex ">
-                  <p className=" opacity-75 pe-2 ">ordina per </p>
-                  <NavDropdown
-                    title="Principali"
-                    className="link-nav fw-bold"
-                  />
-                </Col>
-              </Row>
+              <Container fluid>
+                <Row className="pt-2 px-2">
+                  <Col className="">
+                    <hr className="flex-grow-50" />
+                  </Col>
+                  <Col xs={4} className="d-flex ps-0">
+                    <p className="opacity-75 pe-1 m-0 text-truncate">
+                      ordina per{" "}
+                    </p>
+                    <NavDropdown
+                      title="Principali"
+                      className="link-nav fw-bold"
+                    />
+                  </Col>
+                </Row>
+              </Container>
             </Col>
             {/* posts */}
             <Col className="bg-white rounded-3 p-1">posts</Col>
