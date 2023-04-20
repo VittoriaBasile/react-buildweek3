@@ -5,12 +5,16 @@ import { useSelector } from "react-redux";
 
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
-  const exp = useSelector((state) => state.experiences.content)
+  const exp = useSelector((state) => state.experiences.content);
 
   return (
     <>
       <Card className="headerCard border mt-4">
-        <Card.Img className="profile-background-image pb-5" variant="top" src="https://picsum.photos/seed/picsum/800/200" />
+        <Card.Img
+          className="profile-background-image pb-5"
+          variant="top"
+          src="https://picsum.photos/seed/picsum/800/200"
+        />
         <Card.Body>
           <Row className="absoluteProfile">
             <Col xs={7}>
@@ -23,16 +27,15 @@ const HeaderProfile = ({ profileData }) => {
               <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>
-              <Card.Text className=" mx-3">
-                {profileData.bio}
-              </Card.Text>
-              <span className="text-secondary fs-6 mx-3">{profileData.area}</span>
+              <Card.Text className=" mx-3">{profileData.bio}</Card.Text>
+              <span className="text-secondary fs-6 mx-3">
+                {profileData.area}
+              </span>
               <span>-</span>
-              <span className="info fs-6 mx-3">Informazioni di contatto: 
-              <p className="mx-3 mb-0">
-                {profileData.email}
-                </p>
-                </span>
+              <span className="info fs-6 mx-3">
+                Informazioni di contatto:
+                <p className="mx-3 mb-0">{profileData.email}</p>
+              </span>
             </Col>
             <Col className="ms-5">
               <div className="iconaFotoDiv">
@@ -53,7 +56,10 @@ const HeaderProfile = ({ profileData }) => {
               </div>
               <Row className="">
                 <div className="d-flex justify-content-end">
-                  <button className="btnModificaProfilo border-0 rounded-circle " onClick={() => setModalShow(true)}>
+                  <button
+                    className="btnModificaProfilo border-0 rounded-circle "
+                    onClick={() => setModalShow(true)}
+                  >
                     <svg
                       fill="#666666"
                       xmlns="http://www.w3.org/2000/svg"
@@ -70,13 +76,14 @@ const HeaderProfile = ({ profileData }) => {
                 </div>
               </Row>
 
-              <Row>
-                <Col>
-                <img style={{ width: "32px" }} src="" alt="" />
-                <span className="text-dark">{exp.company}</span>
-                </Col>
-                
-              </Row>
+              {exp && (
+                <Row>
+                  <Col>
+                    <img style={{ width: "32px" }} src="" alt="" />
+                    <span className="text-dark">{exp.company}</span>
+                  </Col>
+                </Row>
+              )}
             </Col>
           </Row>
           <p className="info fs-6 ms-3">100 collegamenti</p>
@@ -98,7 +105,9 @@ const HeaderProfile = ({ profileData }) => {
               <Card className="miniHeaderCard cardDettaglio d-flex flex-row mx-3">
                 <Card.Body className="hl-1">
                   <div className="lh-sm">
-                    <span className="fs-6 fw-semibold">Disponibile a lavorare</span>
+                    <span className="fs-6 fw-semibold">
+                      Disponibile a lavorare
+                    </span>
                     <p className="mb-2  fs-6">lavoro</p>
                     <Card.Link className="linkCard info " href="#">
                       Mostra dettagli
@@ -129,9 +138,12 @@ const HeaderProfile = ({ profileData }) => {
               <Card className="miniHeaderCard d-flex flex-row mx-2">
                 <Card.Body className="hl-1">
                   <div className="lh-sm">
-                    <span className="fs-6 fw-semibold">Metti in risalto i servizi </span>
+                    <span className="fs-6 fw-semibold">
+                      Metti in risalto i servizi{" "}
+                    </span>
                     <span className="mb-2  fs-6">
-                      che offri, così tu e la tua azienda potrete apparire nei risultati di ricerca.
+                      che offri, così tu e la tua azienda potrete apparire nei
+                      risultati di ricerca.
                     </span>
                     <div>
                       <Card.Link className="linkCard info " href="#">
@@ -164,8 +176,12 @@ const HeaderProfile = ({ profileData }) => {
               <Card className="miniHeaderCard d-flex flex-row mx-3">
                 <Card.Body className="">
                   <div className="lh-sm">
-                    <span className="fs-6 fw-semibold">Fai sapere che stai facendo selezione </span>
-                    <span className="mb-2 fs-6">e attrai candidati qualificati. </span>
+                    <span className="fs-6 fw-semibold">
+                      Fai sapere che stai facendo selezione{" "}
+                    </span>
+                    <span className="mb-2 fs-6">
+                      e attrai candidati qualificati.{" "}
+                    </span>
                     <div>
                       <Card.Link className="linkCard info" href="#">
                         Inizia
@@ -197,7 +213,10 @@ const HeaderProfile = ({ profileData }) => {
           </Carousel>
         </Card.Body>
       </Card>
-      <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };
