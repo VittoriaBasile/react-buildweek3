@@ -18,19 +18,18 @@ const HeaderProfile = ({ profileData }) => {
         <Card.Body>
           <Row className="absoluteProfile">
             <Col xs={7}>
-              <img
-                className="profileImg rounded-circle "
-                src={profileData.image}
-                alt="profileImage"
-                width="170px"
-              />
+              <img className="profileImg rounded-circle " src={profileData.image} alt="profileImage" width="170px" />
               <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>
               <Card.Text className=" mx-3">{profileData.bio}</Card.Text>
+<<<<<<< HEAD
               <span className="text-secondary fs-6 mx-3">
                 {profileData.area}
               </span>
+=======
+              <span className="text-secondary fs-6 mx-3">{profileData.area}</span>
+>>>>>>> origin/vittorias-branch
               <span>-</span>
               <span className="info fs-6 mx-3">
                 Informazioni di contatto:
@@ -76,6 +75,7 @@ const HeaderProfile = ({ profileData }) => {
                 </div>
               </Row>
 
+<<<<<<< HEAD
               {exp && (
                 <Row>
                   <Col>
@@ -84,6 +84,14 @@ const HeaderProfile = ({ profileData }) => {
                   </Col>
                 </Row>
               )}
+=======
+              <Row>
+                <Col>
+                  <img style={{ width: "32px" }} src="" alt="" />
+                  <span className="text-dark">{exp && exp.company ? exp.company : ""}</span>
+                </Col>
+              </Row>
+>>>>>>> origin/vittorias-branch
             </Col>
           </Row>
           <p className="info fs-6 ms-3">100 collegamenti</p>
