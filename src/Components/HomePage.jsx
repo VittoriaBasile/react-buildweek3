@@ -40,29 +40,29 @@ const HomePage = () => {
       <Container>
         <Row className="pt-4 gap-2">
           {/* prima col principale*/}
-          <Col xs={3} className="px-0">
+          <Col xs={2} className="px-0">
             {/* container profile */}
             <HomeProfileSection />
             {/* container scopri di più */}
-            <Col className="bg-white rounded-3 p-2 my-3 fw-bold ">
+            <Col className="bg-white rounded-3 p-2 my-3 fw-bold">
               <Col>
-                <a href="#" className="text-decoration-none">
+                <a href="#" className="text-decoration-none smallP">
                   Gruppi
                 </a>
               </Col>
-              <Col className="py-3 d-flex justify-content-between">
-                <a href="#" className="text-decoration-none">
+              <Col className="pt-2 d-flex justify-content-between">
+                <a href="#" className="text-decoration-none smallP">
                   Eventi
                 </a>
                 ➕
               </Col>
               <Col>
-                <a href="#" className="text-decoration-none">
+                <a href="#" className="text-decoration-none smallP">
                   Hashtag seguiti
                 </a>
               </Col>
-              <Col className="text-center border-top py-2 mt-2 ">
-                <a href="#" className="link-nav text-decoration-none">
+              <Col className="text-center border-top py-2 mt-3 ">
+                <a href="#" className="link-nav text-decoration-none smallP">
                   Scopri di più
                 </a>
               </Col>
@@ -70,10 +70,10 @@ const HomePage = () => {
           </Col>
 
           {/* seconda col principale*/}
-          <Col xs={5}>
+          <Col xs={6} className="mediumP">
             {/* search */}
 
-            <Col className="bg-white rounded-3 pt-3 px-3">
+            <Col className="bg-white rounded-3 pt-3 px-3 mx-3 border">
               <Container fluid>
                 <Row className="align-items-center">
                   <Col className="text-center" xs={2}>
@@ -92,7 +92,6 @@ const HomePage = () => {
                         value={newPost}
                         onChange={(e) => setNewPost(e.target.value)}
                       />
-                      {/* <Button >post</Button> */}
                     </Form>
                   </Col>
                 </Row>
@@ -202,7 +201,7 @@ const HomePage = () => {
                   <Card className="border bg-white rounded-3 p-1 m-3">
                     <Card.Body>
                       <Row>
-                        <Col xs={3} className="pe-0">
+                        <Col xs={2} className="pe-0">
                           <img
                             className="img-fluid rounded-circle text-center"
                             width="60px"
@@ -215,7 +214,7 @@ const HomePage = () => {
                           />
                         </Col>
                         <Col xs={9} className="ps-0">
-                          <Card.Title className="">
+                          <Card.Title className="mediumP">
                             {post.user && post.user.name ? post.user.name : ""}{" "}
                             {post.user && post.user.surname
                               ? post.user.surname
@@ -229,7 +228,7 @@ const HomePage = () => {
                         </Col>
                       </Row>
                       <Card.Text className="my-3 ms-1">
-                        <p className="text-start">{post.text}</p>
+                        <p className="text-start textP">{post.text}</p>
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -238,7 +237,7 @@ const HomePage = () => {
           </Col>
 
           {/* terza col principale*/}
-          <Col xs={3} className="px-0">
+          <Col xs={3} className="px-0 smallP">
             {/* linkedin notizie */}
             <Col className="bg-white rounded-3 p-1">
               <Col className="d-flex justify-content-between  px-2 py-2 align-items-center">

@@ -9,10 +9,10 @@ const HomeProfileSection = () => {
   
   return (
     <>
-      <Col className="bg-white rounded-3 p-1 ">
+      <Col className="bg-white rounded-3 p-1">
         <Col className="border-bottom">
           <img
-            src={BgImg}
+            src="https://picsum.photos/seed/picsum/800/300"
             alt="bg-img-profile"
             className="bg-img-profile img-fluid rounded-top"
           />
@@ -28,11 +28,11 @@ const HomeProfileSection = () => {
           <Col className="fw-bold text-center pt-5">
             {profile.name} {profile.surname}
           </Col>
-          <Col className="text-center pb-4">
+          <Col className="text-center pb-4 smallP">
             {profile.bio}
           </Col>
         </Col>
-        <Col className="border-top border-bottom p-3">
+        <Col className="border-top border-bottom p-3 smallP">
           <Col className="d-flex justify-content-between">
             <p className="mb-0">Collegamenti</p>
             <p className="mb-0 text-primary fw-bold">60</p>
@@ -43,7 +43,7 @@ const HomeProfileSection = () => {
             <p className="mb-0 text-primary fw-bold">18</p>
           </Col>
         </Col>
-        <Col className="p-3 opacity-75 border-bottom">
+        <Col className="p-3 opacity-75 border-bottom smallP">
           <p className="mb-0">Accedi a strumenti e informazioni in esclusiva</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ const HomeProfileSection = () => {
             Prova Premium Gratis
           </a>
         </Col>
-        <Col className="align-items-center d-flex px-3">
+        <Col className="align-items-center d-flex px-3 smallP">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -78,7 +78,7 @@ const HomeProfileSection = () => {
           >
             <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z" />
           </svg>
-          <Button className="bg-transparent text-dark border-0 fw-bold py-3  ">
+          <Button className="bg-transparent text-dark border-0 fw-bold py-3 smallP">
             I miei elementi
           </Button>
         </Col>

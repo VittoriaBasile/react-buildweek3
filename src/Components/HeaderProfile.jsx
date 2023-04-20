@@ -1,36 +1,41 @@
 import { useState } from "react";
 import { Button, Card, Carousel, Col, Row } from "react-bootstrap";
 import MyVerticallyCenteredModal from "./ModalProfileEdit"; //import fatto correttamente e funziona tutto, non sappiamo ancora cosa vuole dalla vita.
+import { useSelector } from "react-redux";
 
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
+  const exp = useSelector((state) => state.experiences.content)
 
   return (
     <>
       <Card className="headerCard border mt-4">
-        <Card.Img className="profile-background-image pb-5" variant="top" src="https://picsum.photos/seed/picsum/800/300" />
+        <Card.Img className="profile-background-image pb-5" variant="top" src="https://picsum.photos/seed/picsum/800/200" />
         <Card.Body>
-          <Row>
-            <Col>
+          <Row className="absoluteProfile">
+            <Col xs={7}>
               <img
-                className="profileImg border border-secondary rounded-circle "
+                className="profileImg rounded-circle "
                 src={profileData.image}
                 alt="profileImage"
-                width="100px"
+                width="170px"
               />
-              <Card.Title>
+              <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>
-              <Card.Text>
-                Epicode <br />
+              <Card.Text className=" mx-3">
                 {profileData.bio}
               </Card.Text>
-              <span className="text-secondary fs-6">{profileData.area}</span>
+              <span className="text-secondary fs-6 mx-3">{profileData.area}</span>
               <span>-</span>
-              <span className="info fs-6">Informazioni di contatto: {profileData.email}</span>
+              <span className="info fs-6 mx-3">Informazioni di contatto: 
+              <p className="mx-3 mb-0">
+                {profileData.email}
+                </p>
+                </span>
             </Col>
             <Col className="ms-5">
-              <div className="iconaFotoDiv position-absolute ">
+              <div className="iconaFotoDiv">
                 <button className="modificaFoto border-0 bg-light rounded-circle ">
                   <svg
                     fill="#0a66c2"
@@ -66,14 +71,16 @@ const HeaderProfile = ({ profileData }) => {
               </Row>
 
               <Row>
+                <Col>
                 <img style={{ width: "32px" }} src="" alt="" />
-
-                <span className="text-dark">AZIENDA</span>
+                <span className="text-dark">{exp.company}</span>
+                </Col>
+                
               </Row>
             </Col>
           </Row>
-          <p className="info fs-6">100 collegamenti</p>
-          <div>
+          <p className="info fs-6 ms-3">100 collegamenti</p>
+          <div className="mx-3">
             <button className="btnDisponibile border-0 text-light px-3 me-1 fs-6 rounded-pill fw-semibold">
               Disponibile per
             </button>

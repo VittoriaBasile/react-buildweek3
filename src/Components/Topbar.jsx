@@ -17,7 +17,7 @@ const Topbar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Container fluid className="px-5 ">
+      <Container fluid className="px-5">
         <Container className="d-flex px-1 align-items-center">
           <Link to={"/"}>
             <Navbar.Brand href="#">
