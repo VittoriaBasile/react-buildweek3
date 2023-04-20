@@ -160,3 +160,27 @@ body {
   border-top-right-radius: 12px;
   border-color: #e0dfdc;
 }
+
+.bg-img-profile {
+  background-size: cover;
+  width: 100%;
+  max-height: 4.5rem;
+
+}
+
+.img-profile {
+  top: -2.6rem;
+  border: 2px solid white;
+  max-width: 80px;
+
+}
+
+.img-profile-nav {
+  max-width: 24px;
+}
+
+
+.img-profile-input {
+  max-width: 4rem;
+
+}
