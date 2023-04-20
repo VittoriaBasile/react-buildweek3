@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux";
-
 export const SET_PROFILE = "SET_PROFILE";
 export const PROFILE = "PROFILE";
 export const ALL_PROFILE = "ALL_PROFILE";
@@ -13,9 +11,8 @@ export const PUT_EXPERIENCES = "PUT_EXPERIENCES";
 export const GET_POSTS = "GET_POSTS";
 export const NEW_POST = "NEW_POST";
 export const PUBLIC_POST = "PUBLIC_POST";
-export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
-export const putFormAction = (content) => ({ type: PUT_EXPERIENCES, payload: content });
+export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
 export const getSearchAction = (content) => ({ type: GET_SEARCH_DATA, payload: content });
 const generalProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
@@ -134,6 +131,7 @@ export const postExperiencesAction = (newExp, userID) => {
       if (response.ok) {
         const newExperience = await response.json();
         dispatch({ type: POST_EXPERIENCES, payload: newExperience });
+        dispatch(getExperiencesAction(userID));
       }
     } catch (error) {
       console.log(error);
@@ -160,7 +158,7 @@ export const getExperiencesAction = (userID) => {
 };
 
 export const deleteExperiencesAction = (userID, expID) => {
-  return async () => {
+  return async (dispatch) => {
     try {
       const response = await fetch(generalProfileEndpoint + userID + "/experiences/" + expID, {
         method: "DELETE",
@@ -171,6 +169,7 @@ export const deleteExperiencesAction = (userID, expID) => {
       });
       if (response.ok) {
         alert("Esperienza eliminata!");
+        dispatch(getExperiencesAction(userID));
       }
     } catch (error) {
       console.log(error);

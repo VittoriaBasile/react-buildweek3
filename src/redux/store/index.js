@@ -7,12 +7,11 @@ import profileReducer from "../reducers/profileReducer";
 import searchProfileReducer from "../reducers/searchProfileReducer";
 import allProfileReducer from "../reducers/allProfileReducer";
 import profileFormReducer from "../reducers/ProfileFormReducer";
-import experienceReducer from "../reducers/experienceReducer";
 import allExpReducer from "../reducers/allExpReducer";
-import changeNdeleteReducer from "../reducers/changeNdeleteReducer";
-import modifyExpReducer from "../reducers/modifyExpReducer";
+import changeReducer from "../reducers/changeReducer";
 import allPostsReducer from "../reducers/allPostsReducer";
 import publicPostReducer from "../reducers/publicPostReducer";
+import experienceReducer from "../reducers/experienceReducer";
 
 const persistConfig = {
   key: "root",
@@ -30,12 +29,11 @@ const rootReducer = combineReducers({
   searchProfile: searchProfileReducer,
   allProfile: allProfileReducer,
   profileForm: profileFormReducer,
-  experiences: experienceReducer,
   allExp: allExpReducer,
-  changeDelete: changeNdeleteReducer,
-  modifyExp: modifyExpReducer,
+  changeDelete: changeReducer,
   allPosts: allPostsReducer,
   publicPost: publicPostReducer,
+  experiences: experienceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -2,8 +2,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { deleteExperiencesAction, putFormAction, putExperienceAction, getExperiencesAction } from "../redux/actions";
+import { useState } from "react";
+import { deleteExperiencesAction, putExperienceAction } from "../redux/actions";
 
 function ChangeExp(props) {
   const [role, setRole] = useState(props.experience.role);
