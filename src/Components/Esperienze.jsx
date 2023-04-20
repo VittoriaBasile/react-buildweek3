@@ -10,10 +10,6 @@ const Esperienze = () => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.profile.content)
   const experiences = useSelector((state) => state.allExp.content)
-  // const handleDelete = (e) =>{
-  //   e.preventDefault()
-  //   dispatch(deleteExperiencesAction(user._id, e.experience._id))
-  // }
 
   useEffect(()=>{
     dispatch(getExperiencesAction(user._id))
