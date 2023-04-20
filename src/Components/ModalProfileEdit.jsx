@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { editProfileAction } from '../redux/actions';
+import { editProfileAction, editProfileImageAction } from '../redux/actions';
 import {getFormAction} from '../redux/actions';
 
 function MyVerticallyCenteredModal(props) {
@@ -13,6 +13,7 @@ function MyVerticallyCenteredModal(props) {
   const [bio, setBio] = useState("")
   const [title, setTitle] = useState("")
   const [area, setArea] = useState("")
+  const [image, setImage] = useState()
   // const newData = useSelector((state)=> state.editProfile.content)
   // console.log(newData)
   
@@ -20,14 +21,18 @@ function MyVerticallyCenteredModal(props) {
   const newData = useSelector((state) => state.profileForm.content)
   const dispatch = useDispatch()
 
+  const dataImage = new FormData();
+  dataImage.append('profile', image);
+
   const handleSubmit = (e) =>{
     e.preventDefault()
     dispatch(getFormAction({name, surname, email, title, bio, area}))
   }
   
   useEffect(()=> {
-    if(newData !== null){
+    if(newData !== null && image){
       dispatch(editProfileAction(newData))
+      dispatch(editProfileImageAction(dataImage, oldData._id))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[newData])
@@ -98,6 +103,14 @@ function MyVerticallyCenteredModal(props) {
                 placeholder="Città"
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
+                autoFocus
+              />
+              <Form.Label>Immagine del profilo</Form.Label>
+              <Form.Control
+                type="file"
+                accept='.png'
+                placeholder="Carica un'immagine qui"
+                onChange={(e) => setImage(()=>e.target.files[0])}
                 autoFocus
               />
             </Form.Group>
