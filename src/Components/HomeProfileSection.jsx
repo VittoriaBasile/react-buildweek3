@@ -2,8 +2,11 @@ import React from "react";
 import { Button, Col } from "react-bootstrap";
 import BgImg from "../assets/imgs/gradient-background.jpg";
 import ProfileImg from "../assets/imgs/gif.gif";
+import { useSelector } from "react-redux";
 
 const HomeProfileSection = () => {
+  const profile = useSelector((state) => state.profile.content)
+  
   return (
     <>
       <Col className="bg-white rounded-3 p-1 ">
@@ -17,16 +20,16 @@ const HomeProfileSection = () => {
         <Col>
           <Col className="position-relative d-flex justify-content-center">
             <img
-              src={ProfileImg}
+              src={profile.image}
               alt="profile-img"
               className="img-profile img-fluid rounded-circle  position-absolute"
             />
           </Col>
           <Col className="fw-bold text-center pt-5">
-            {/* nome dinamico */}Andrea Barocchi
+            {profile.name} {profile.surname}
           </Col>
           <Col className="text-center pb-4">
-            {/* bio */}Full Stack Web Developer Student presso Epicode
+            {profile.bio}
           </Col>
         </Col>
         <Col className="border-top border-bottom p-3">
