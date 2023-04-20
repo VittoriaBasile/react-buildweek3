@@ -5,6 +5,7 @@ import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsAction, postPostAction } from "../redux/actions";
+import SinglePost from "./SinglePost";
 
 const HomePage = () => {
   const [newPost, setNewPost] = useState("");
@@ -173,37 +174,7 @@ const HomePage = () => {
             </Col>
             {/* posts */}
 
-            {allPosts.length > 0 &&
-              allPosts.map((post) => (
-                <Col key={post._id}>
-                  <Card className="border bg-white rounded-3 p-1 m-3">
-                    <Card.Body>
-                      <Row>
-                        <Col xs={2} className="pe-0">
-                          <img
-                            className="img-fluid rounded-circle text-center"
-                            width="60px"
-                            src={post.user && post.user.image ? post.user.image : ""}
-                            alt="profilePostImage"
-                          />
-                        </Col>
-                        <Col xs={9} className="ps-0">
-                          <Card.Title className="mediumP">
-                            {post.user && post.user.name ? post.user.name : ""}{" "}
-                            {post.user && post.user.surname ? post.user.surname : ""}
-                          </Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted">
-                            {post.user && post.user.title ? post.user.title : ""}
-                          </Card.Subtitle>
-                        </Col>
-                      </Row>
-                      <Card.Text className="my-3 ms-1">
-                        <p className="text-start textP">{post.text}</p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
           </Col>
 
           {/* terza col principale*/}

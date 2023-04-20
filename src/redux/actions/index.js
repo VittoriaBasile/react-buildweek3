@@ -236,3 +236,43 @@ export const postPostAction = (newData) => {
     }
   };
 };
+
+export const putPostAction = (newData, postID) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(postsEndpoint + "/" + postID, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+        },
+        body: JSON.stringify({ text: newData }),
+      });
+      if (response.ok) {
+        dispatch(getPostsAction());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deletePostAction = (postID) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(postsEndpoint + "/" + postID, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+        },
+      });
+      if (response.ok) {
+        alert("Post eliminato!");
+        dispatch(getPostsAction());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
