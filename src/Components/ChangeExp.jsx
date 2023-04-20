@@ -9,6 +9,7 @@ function ChangeExp(props) {
   const [role, setRole] = useState(props.experience.role);
   const [company, setCompany] = useState(props.experience.company);
   const [startDate, setStartDate] = useState(props.experience.startDate);
+
   const [endDate, setEndDate] = useState(props.experience.endDate);
   const [description, setDescription] = useState(props.experience.description);
   const [area, setArea] = useState(props.experience.area);
