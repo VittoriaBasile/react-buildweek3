@@ -43,17 +43,17 @@ const ProfileMainPage = () => {
               {/* sezione principale con profile header, inserire qui a cascata i vari componenti */}
               <HeaderProfile profileData={profile} />
               <Esperienze />
-              <Form>
+              {/* <Form>
                 <FormControl type="textarea" value={newPost} onChange={(e) => setNewPost(e.target.value)} />
                 <Button onClick={handleSubmit}>post</Button>
-              </Form>
+              </Form> */}
               <div>
-                {allPosts.length > 0 &&
+                {/* {allPosts.length > 0 &&
                   allPosts.map((post) => (
                     <div key={post._id}>
                       <p>{post.text}</p>
                     </div>
-                  ))}
+                  ))} */}
               </div>
             </Col>
             <Col md={2} className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75">
