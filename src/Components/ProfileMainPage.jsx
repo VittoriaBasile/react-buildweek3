@@ -1,11 +1,9 @@
-import { Button, Col, Container, Form, FormControl, Row } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   allProfileFetchAction,
   getPostsAction,
-  newPostAction,
-  postPostAction,
   profileFetchAction,
 } from "../redux/actions";
 import HeaderProfile from "./HeaderProfile";
@@ -15,12 +13,11 @@ import Topbar from "./Topbar";
 import MyFooter from "./MyFooter";
 
 const ProfileMainPage = () => {
-  const [newPost, setNewPost] = useState("");
 
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile.content);
   const allProfile = useSelector((state) => state.allProfile.content);
-  const allPosts = useSelector((state) => state.allPosts.content);
+
   useEffect(() => {
     dispatch(profileFetchAction());
     dispatch(allProfileFetchAction());
@@ -28,10 +25,6 @@ const ProfileMainPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(postPostAction(newPost));
-  };
 
   return (
     profile && (
@@ -43,18 +36,6 @@ const ProfileMainPage = () => {
               {/* sezione principale con profile header, inserire qui a cascata i vari componenti */}
               <HeaderProfile profileData={profile} />
               <Esperienze />
-              {/* <Form>
-                <FormControl type="textarea" value={newPost} onChange={(e) => setNewPost(e.target.value)} />
-                <Button onClick={handleSubmit}>post</Button>
-              </Form> */}
-              <div>
-                {/* {allPosts.length > 0 &&
-                  allPosts.map((post) => (
-                    <div key={post._id}>
-                      <p>{post.text}</p>
-                    </div>
-                  ))} */}
-              </div>
             </Col>
             <Col md={2} className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75">
               <h6 className="ps-3">Persone che potresti conoscere</h6>
@@ -63,7 +44,7 @@ const ProfileMainPage = () => {
               {allProfile &&
                 allProfile.slice(0, 5).map((profile) => {
                   return (
-                    <div key={profile._id} className="mt-3 py-2">
+                    <div key={profile._id} className="mt-3 py-2 smallP">
                       <Container className="  rounded-3 ">
                         <Row className="">
                           <Col xs={3}>
@@ -82,7 +63,7 @@ const ProfileMainPage = () => {
                             {/* titolo lavorativo */}
                             <p className="text-truncate m-0">{profile.title}</p>
                             <Button
-                              className="btn-other-profile rounded-pill border-dark d-flex align-items-center py-1 mt-2"
+                              className="btn-other-profile rounded-pill border-dark d-flex align-items-center py-1 mt-2 smallP"
                               variant="outlined"
                             >
                               <svg
