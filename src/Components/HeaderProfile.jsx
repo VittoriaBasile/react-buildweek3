@@ -8,7 +8,7 @@ const HeaderProfile = ({ profileData }) => {
   return (
     <>
       <Card className="headerCard border mt-4">
-        <Card.Img className="profile-background-image" variant="top" src="https://picsum.photos/seed/picsum/800/400" />
+        <Card.Img className="profile-background-image pb-5" variant="top" src="https://picsum.photos/seed/picsum/800/300" />
         <Card.Body>
           <Row>
             <Col>
