@@ -1,12 +1,12 @@
-import { GET_SEARCH_DATA } from "../actions";
+import { JOBS } from "../actions";
 
 const initialState = {
 	content: "",
 };
 
-const searchProfileReducer = (state = initialState, action) => {
+const searchJobsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case GET_SEARCH_DATA:
+		case JOBS:
 			return {
 				...state,
 				content: action.payload,
@@ -16,4 +16,4 @@ const searchProfileReducer = (state = initialState, action) => {
 	}
 };
 
-export default searchProfileReducer;
+export default searchJobsReducer;

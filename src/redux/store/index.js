@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import editProfileReducer from "../reducers/editProfileReducer";
 import profileReducer from "../reducers/profileReducer";
-import searchProfileReducer from "../reducers/searchProfileReducer";
+import searchJobsReducer from "../reducers/searchJobsReducer";
 import allProfileReducer from "../reducers/allProfileReducer";
 import profileFormReducer from "../reducers/ProfileFormReducer";
 import allExpReducer from "../reducers/allExpReducer";
@@ -14,34 +14,34 @@ import publicPostReducer from "../reducers/publicPostReducer";
 import experienceReducer from "../reducers/experienceReducer";
 
 const persistConfig = {
-  key: "root",
-  storage,
-  transforms: [
-    encryptTransform({
-      secretKey: process.env.REACT_APP_SECRET_KEY,
-    }),
-  ],
+	key: "root",
+	storage,
+	transforms: [
+		encryptTransform({
+			secretKey: process.env.REACT_APP_SECRET_KEY,
+		}),
+	],
 };
 
 const rootReducer = combineReducers({
-  editProfile: editProfileReducer,
-  profile: profileReducer,
-  searchProfile: searchProfileReducer,
-  allProfile: allProfileReducer,
-  profileForm: profileFormReducer,
-  allExp: allExpReducer,
-  changeDelete: changeReducer,
-  allPosts: allPostsReducer,
-  publicPost: publicPostReducer,
-  experiences: experienceReducer,
+	editProfile: editProfileReducer,
+	profile: profileReducer,
+	searchJobs: searchJobsReducer,
+	allProfile: allProfileReducer,
+	profileForm: profileFormReducer,
+	allExp: allExpReducer,
+	changeDelete: changeReducer,
+	allPosts: allPostsReducer,
+	publicPost: publicPostReducer,
+	experiences: experienceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  // reducer
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
+	// reducer
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });
 
 export const persistor = persistStore(store);
