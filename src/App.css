@@ -61,11 +61,13 @@ body {
 	border-top-right-radius: 12px;
 	cursor: pointer;
 }
+
 .iconaFotoDiv {
 	position: absolute;
 	top: -18rem;
 	right: 2rem;
 }
+
 .btn-other-profile:hover {
 	background-color: rgb(223, 223, 223);
 	border: 2px solid rgb(71, 71, 71);
@@ -80,6 +82,7 @@ body {
 .absoluteProfile {
 	position: relative;
 }
+
 .profileImg {
 	position: absolute;
 	top: -185px;
@@ -185,12 +188,27 @@ body {
 	max-width: 4rem;
 }
 
+.img-profile-job {
+	max-width: 55px;
+}
+
 .smallP {
 	font-size: 0.8rem;
 }
+
 .textP {
 	font-size: 0.9rem;
 }
+
 .mediumP {
 	font-size: 1rem;
+}
+
+.btn-blue-custom:hover {
+	background-color: rgba(0, 132, 255, 0.121);
+	border: 2px solid blue;
+}
+
+.hover-icon:hover {
+	background-color: rgba(128, 128, 128, 0.247);
 }
