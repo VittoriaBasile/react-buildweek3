@@ -20,6 +20,7 @@ const HomePage = () => {
   const [newPost, setNewPost] = useState("");
   const dispatch = useDispatch();
   const allPosts = useSelector((state) => state.allPosts.content);
+  const profile = useSelector((state) => state.profile.content)
 
   useEffect(() => {
     dispatch(getPostsAction());
@@ -74,15 +75,15 @@ const HomePage = () => {
 
             <Col className="bg-white rounded-3 pt-3 px-3">
               <Container fluid>
-                <Row className="align-items-center px-3">
+                <Row className="align-items-center">
                   <Col className="text-center" xs={2}>
                     <img
-                      src={ProfileImg}
+                      src={profile.image}
                       alt="profile-img"
-                      className="img-profile-input img-fluid rounded-circle "
+                      className="img-profile-input img-fluid rounded-circle"
                     />
                   </Col>
-                  <Col className="pe-3 ps-4 ps-xl-0">
+                  <Col xs={10} className="pe-3 ps-4">
                     <Form onSubmit={handleSubmit}>
                       <FormControl
                         placeholder="Avvia un post"
@@ -97,10 +98,10 @@ const HomePage = () => {
                 </Row>
               </Container>
 
-              <Row className="py-3 ">
+              <Row className="py-3">
                 <Col
                   xs={12}
-                  className="d-flex px-0 text-center align-items-center"
+                  className="d-flex px-0 text-center align-items-center flex-wrap"
                 >
                   <Col>
                     <Button className="bg-transparent border-0 text-dark">
@@ -137,7 +138,7 @@ const HomePage = () => {
                     </Button>
                   </Col>
                   <Col>
-                    <Button className="bg-transparent border-0 text-dark">
+                    <Button className="bg-transparent p-0 border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -153,7 +154,7 @@ const HomePage = () => {
                       Evento
                     </Button>
                   </Col>
-                  <Col xs={4} className="d-flex ">
+                  <Col xs={5} className="">
                     <Button className="bg-transparent border-0 text-dark ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +168,7 @@ const HomePage = () => {
                       >
                         <path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
                       </svg>{" "}
-                      Scrivi un articolo
+                      <span className="">Scrivi un articolo</span>
                     </Button>
                   </Col>
                 </Col>

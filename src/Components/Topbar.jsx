@@ -9,9 +9,11 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileImg from "../assets/imgs/gif.gif";
+import { useSelector } from "react-redux";
 
 const Topbar = () => {
   const [search, setSearch] = useState("");
+  const profile = useSelector((state) => state.profile.content)
 
   return (
     <Navbar bg="light" expand="lg">
@@ -160,7 +162,7 @@ const Topbar = () => {
                 {/* img profile da inserire qui*/}
                 <Col xs={3} className="d-flex justify-content-center">
                   <img
-                    src={ProfileImg}
+                    src={profile.image}
                     alt="profile-img"
                     className="img-profile-nav img-fluid rounded-circle  "
                   />
