@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Topbar from "./Topbar";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  NavDropdown,
-  Row,
-} from "react-bootstrap";
+import { Button, Card, Col, Container, Form, FormControl, NavDropdown, Row } from "react-bootstrap";
 import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
-import ProfileImg from "../assets/imgs/gif.gif";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsAction, postPostAction } from "../redux/actions";
 
@@ -20,7 +10,7 @@ const HomePage = () => {
   const [newPost, setNewPost] = useState("");
   const dispatch = useDispatch();
   const allPosts = useSelector((state) => state.allPosts.content);
-  const profile = useSelector((state) => state.profile.content)
+  const profile = useSelector((state) => state.profile.content);
 
   useEffect(() => {
     dispatch(getPostsAction());
@@ -77,11 +67,7 @@ const HomePage = () => {
               <Container fluid>
                 <Row className="align-items-center">
                   <Col className="text-center" xs={2}>
-                    <img
-                      src={profile.image}
-                      alt="profile-img"
-                      className="img-profile-input img-fluid rounded-circle"
-                    />
+                    <img src={profile.image} alt="profile-img" className="img-profile-input img-fluid rounded-circle" />
                   </Col>
                   <Col xs={10} className="pe-3 ps-4">
                     <Form onSubmit={handleSubmit}>
@@ -98,10 +84,7 @@ const HomePage = () => {
               </Container>
 
               <Row className="py-3">
-                <Col
-                  xs={12}
-                  className="d-flex px-0 text-center align-items-center flex-wrap"
-                >
+                <Col xs={12} className="d-flex px-0 text-center align-items-center flex-wrap">
                   <Col>
                     <Button className="bg-transparent border-0 text-dark">
                       <svg
@@ -182,13 +165,8 @@ const HomePage = () => {
                     <hr className="flex-grow-50" />
                   </Col>
                   <Col xs={4} className="d-flex ps-0">
-                    <p className="opacity-75 pe-1 m-0">
-                      ordina per{" "}
-                    </p>
-                    <NavDropdown
-                      title="Principali"
-                      className="link-nav fw-bold"
-                    />
+                    <p className="opacity-75 pe-1 m-0">ordina per </p>
+                    <NavDropdown title="Principali" className="link-nav fw-bold" />
                   </Col>
                 </Row>
               </Container>
@@ -205,25 +183,17 @@ const HomePage = () => {
                           <img
                             className="img-fluid rounded-circle text-center"
                             width="60px"
-                            src={
-                              post.user && post.user.image
-                                ? post.user.image
-                                : ""
-                            }
+                            src={post.user && post.user.image ? post.user.image : ""}
                             alt="profilePostImage"
                           />
                         </Col>
                         <Col xs={9} className="ps-0">
                           <Card.Title className="mediumP">
                             {post.user && post.user.name ? post.user.name : ""}{" "}
-                            {post.user && post.user.surname
-                              ? post.user.surname
-                              : ""}
+                            {post.user && post.user.surname ? post.user.surname : ""}
                           </Card.Title>
                           <Card.Subtitle className="mb-2 text-muted">
-                            {post.user && post.user.title
-                              ? post.user.title
-                              : ""}
+                            {post.user && post.user.title ? post.user.title : ""}
                           </Card.Subtitle>
                         </Col>
                       </Row>
@@ -257,10 +227,7 @@ const HomePage = () => {
               </Col>
               <Col>{/* inserire qui il componente notizie */}</Col>
               <Col>
-                <NavDropdown
-                  title="Visualizza altro"
-                  className="link-nav fw-bold px-4"
-                />
+                <NavDropdown title="Visualizza altro" className="link-nav fw-bold px-4" />
               </Col>
             </Col>
             {/* container annuncio */}
@@ -278,17 +245,12 @@ const HomePage = () => {
                   <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                 </svg>
               </Col>
-              <p className="text-center px-3 opacity-50">
-                Segui i nostri valori e partners seguendo la nostra pagina.
-              </p>
+              <p className="text-center px-3 opacity-50">Segui i nostri valori e partners seguendo la nostra pagina.</p>
               <img src="" alt="" />
               <img src="" alt="" />
               <p className="fw-bold text-center">Entra nel mondo Audi Italia</p>
               <Col className="justify-content-center d-flex pb-3">
-                <Button
-                  className="text-primary border-primary fw-bold rounded-pill"
-                  variant="outlined "
-                >
+                <Button className="text-primary border-primary fw-bold rounded-pill" variant="outlined ">
                   Segui
                 </Button>
               </Col>

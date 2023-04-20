@@ -5,34 +5,30 @@ import { useSelector } from "react-redux";
 
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
-  const exp = useSelector((state) => state.experiences.content)
+  const exp = useSelector((state) => state.experiences.content);
 
   return (
     <>
       <Card className="headerCard border mt-4">
-        <Card.Img className="profile-background-image pb-5" variant="top" src="https://picsum.photos/seed/picsum/800/200" />
+        <Card.Img
+          className="profile-background-image pb-5"
+          variant="top"
+          src="https://picsum.photos/seed/picsum/800/200"
+        />
         <Card.Body>
           <Row className="absoluteProfile">
             <Col xs={7}>
-              <img
-                className="profileImg rounded-circle "
-                src={profileData.image}
-                alt="profileImage"
-                width="170px"
-              />
+              <img className="profileImg rounded-circle " src={profileData.image} alt="profileImage" width="170px" />
               <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>
-              <Card.Text className=" mx-3">
-                {profileData.bio}
-              </Card.Text>
+              <Card.Text className=" mx-3">{profileData.bio}</Card.Text>
               <span className="text-secondary fs-6 mx-3">{profileData.area}</span>
               <span>-</span>
-              <span className="info fs-6 mx-3">Informazioni di contatto: 
-              <p className="mx-3 mb-0">
-                {profileData.email}
-                </p>
-                </span>
+              <span className="info fs-6 mx-3">
+                Informazioni di contatto:
+                <p className="mx-3 mb-0">{profileData.email}</p>
+              </span>
             </Col>
             <Col className="ms-5">
               <div className="iconaFotoDiv">
@@ -72,10 +68,9 @@ const HeaderProfile = ({ profileData }) => {
 
               <Row>
                 <Col>
-                <img style={{ width: "32px" }} src="" alt="" />
-                <span className="text-dark">{exp.company}</span>
+                  <img style={{ width: "32px" }} src="" alt="" />
+                  <span className="text-dark">{exp && exp.company ? exp.company : ""}</span>
                 </Col>
-                
               </Row>
             </Col>
           </Row>
