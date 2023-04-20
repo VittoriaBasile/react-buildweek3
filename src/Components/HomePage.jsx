@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "./Topbar";
 import {
   Button,
+  Card,
   Col,
   Container,
   Form,
+  FormControl,
   NavDropdown,
   Row,
 } from "react-bootstrap";
-import { Dropdown } from "bootstrap";
-import { Link } from "react-router-dom";
 import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
+import { useDispatch, useSelector } from "react-redux";
+import { getPostsAction, postPostAction } from "../redux/actions";
 
 const HomePage = () => {
+  const [newPost, setNewPost] = useState("");
+  const dispatch = useDispatch();
+  const allPosts = useSelector((state) => state.allPosts.content);
+
+  useEffect(() => {
+    dispatch(getPostsAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postPostAction(newPost));
+    setNewPost("")
+  };
+
   return (
     <Container fluid className="px-0">
       <Topbar />
@@ -51,7 +68,7 @@ const HomePage = () => {
           </Col>
 
           {/* seconda col principale*/}
-          <Col>
+          <Col xs={5}>
             {/* search */}
             <Col className="bg-white rounded-3 pt-3 px-3">
               <Row className="align-items-center px-3">
@@ -59,11 +76,16 @@ const HomePage = () => {
                   <img src="#" alt="." />
                 </Col>
                 <Col className="px-0">
-                  <Form.Control
-                    type="search"
-                    placeholder="    Avvia un post"
-                    className=" me-2 border-dark rounded-pill"
+                  <Form onSubmit={handleSubmit}>
+                  <FormControl 
+                  placeholder="Avvia un post" 
+                  className=" me-2 border-dark rounded-pill" 
+                  type="text" 
+                  value={newPost} 
+                  onChange={(e) => setNewPost(e.target.value)} 
                   />
+                  {/* <Button >post</Button> */}
+                </Form>
                 </Col>
               </Row>
               <Row className="py-3 ">
@@ -105,10 +127,32 @@ const HomePage = () => {
                     className="link-nav fw-bold"
                   />
                 </Col>
-              </Row>
+              </Row> 
             </Col>
             {/* posts */}
-            <Col className="bg-white rounded-3 p-1">posts</Col>
+            
+            {allPosts.length > 0 &&
+                  allPosts.map((post) => (
+                    <Col key={post._id}>
+                      <Card className="border bg-white rounded-3 p-1 m-3">
+                        <Card.Body>
+                          <Row>
+                            <Col xs={3} className="pe-0">
+                            <img className="img-fluid rounded-circle text-center" width="60px" src={post.user && post.user.image ? post.user.image : ""} alt="profilePostImage" />
+                            </Col>
+                            <Col xs={9} className="ps-0">
+                              <Card.Title className="">{post.user && post.user.name ? post.user.name : ""} {post.user && post.user.surname ? post.user.surname : ""}</Card.Title>
+                              <Card.Subtitle className="mb-2 text-muted">{post.user && post.user.title ? post.user.title : ""}</Card.Subtitle>
+                            </Col>
+                          </Row>
+                          <Card.Text className="my-3 ms-1">
+                            <p className="text-start">{post.text}</p>
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+            
           </Col>
 
           {/* terza col principale*/}
