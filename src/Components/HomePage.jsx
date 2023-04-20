@@ -182,7 +182,7 @@ const HomePage = () => {
                     <hr className="flex-grow-50" />
                   </Col>
                   <Col xs={4} className="d-flex ps-0">
-                    <p className="opacity-75 pe-1 m-0 text-truncate">
+                    <p className="opacity-75 pe-1 m-0">
                       ordina per{" "}
                     </p>
                     <NavDropdown
