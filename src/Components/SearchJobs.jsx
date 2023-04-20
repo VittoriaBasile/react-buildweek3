@@ -1,10 +1,12 @@
 import { Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const SearchJobs = () => {
+  const searchResults = useSelector((state) => state.searchJobs.content);
   return (
     <Container>
       <Row>
-        <Col xs={6}>
+        <Col>
           <Row className="mx-1">
             <Col xs={1}>
               <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
@@ -18,11 +20,9 @@ const SearchJobs = () => {
             </Col>
           </Row>
         </Col>
-        <Col xs={6}>
-          <div></div>
-        </Col>
       </Row>
     </Container>
   );
 };
+
 export default SearchJobs;
