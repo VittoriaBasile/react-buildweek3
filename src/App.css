@@ -206,7 +206,7 @@ body {
 
 .btn-blue-custom:hover {
 	background-color: rgba(0, 132, 255, 0.121);
-	border: 2px solid blue;
+	border: 1.8px solid blue;
 }
 
 .hover-icon:hover {

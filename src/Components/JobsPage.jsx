@@ -164,7 +164,7 @@ const JobsPage = () => {
               <JobSectionNavLink />
 
               <Col className="bg-white mx-3 rounded-3 border pt-2 mt-4 px-4 d-flex">
-                <Col xs={1} className="me-3">
+                <Col xs={1} className="me-3 mt-1">
                   <img
                     className="img-profile-job rounded-circle img-fluid"
                     src={profile.image}
