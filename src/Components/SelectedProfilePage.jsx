@@ -1,39 +1,34 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  allProfileFetchAction,
-  profileFetchAction,
-} from "../redux/actions";
-import HeaderProfile from "./HeaderProfile";
-import Esperienze from "./Esperienze";
-import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
-import Topbar from "./Topbar";
-import MyFooter from "./MyFooter";
-import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
+import HeaderProfile from "./HeaderProfile"
+import { useEffect } from "react"
+import { allProfileFetchAction, singleProfileFetchAction } from "../redux/actions"
+import { Link, useParams } from "react-router-dom"
+import MyFooter from "./MyFooter"
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle"
+import { Button, Col, Container, Row } from "react-bootstrap"
+import Topbar from "./Topbar"
 
-const ProfileMainPage = () => {
-  const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile.content);
-  const allProfile = useSelector((state) => state.allProfile.content);
+const SelectedProfilePage = () => {
+    const user = useSelector(state => state.singleProfile.content)
+    const dispatch = useDispatch()
+    const params = useParams()
+    const allProfile = useSelector((state) => state.allProfile.content);
 
-  useEffect(() => {
-    dispatch(profileFetchAction(profile._id));
-    dispatch(allProfileFetchAction());
+    useEffect(()=>{
+        dispatch(singleProfileFetchAction(params.id))
+        dispatch(allProfileFetchAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    },[])
 
-  return (
-    profile && (
-      <>
+    return(
+        <>
         <Topbar />
         <Container fluid className="bg-mainpage">
           <Row className="bg-mainpage px-5 gx-2 justify-content-center">
             <Col md={7} className="mx-2">
               {/* sezione principale con profile header, inserire qui a cascata i vari componenti */}
-              <HeaderProfile profileData={profile} />
-              <Esperienze />
-            </Col>
+        <HeaderProfile profileData={user}/>
+        </Col>
             <Col
               md={2}
               className="mx-2 d-none d-md-block  border mt-4 pt-3 ps-1 rounded-3 bg-white h-75"
@@ -108,6 +103,5 @@ const ProfileMainPage = () => {
         <MyFooter />
       </>
     )
-  )
-};
-export default ProfileMainPage;
+}
+export default SelectedProfilePage
