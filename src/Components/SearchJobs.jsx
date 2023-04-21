@@ -41,7 +41,7 @@ const SearchJobs = () => {
                           </div>
                         </Card.Title>
 
-                        <Card.Text className="fw-semibold d-flex justify-content-between align-items-center pt-3">
+                        <Card.Text className="fw-semibold d-flex justify-content-between align-items-center mt-3 border-top border-bottom py-1">
                           <Col xs={4}>{job.category}</Col>
                           <Col xs={4}>{job.job_type}</Col>
                           <Col xs={4}>{job.candidate_required_location}</Col>
