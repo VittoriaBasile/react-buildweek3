@@ -7,8 +7,8 @@ const SearchJobs = () => {
 
   return (
     <Row>
-      <Col>
-        <h4 className="ps-3">Offerte di lavoro :</h4>
+      <Col className="bg-white border rounded-3">
+        <h4 className="ps-3 pt-2">Offerte di lavoro :</h4>
         <Row className="mx-1">
           {/* <Col xs={1}>
               <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
@@ -23,11 +23,13 @@ const SearchJobs = () => {
                 console.log(formattedDate);
 
                 return (
-                  <>
-                    <Card key={job._id} className="my-2">
-                      <Card.Header className="fw-bold">{job.title}</Card.Header>
+                  <Container className="px-3">
+                    <Row key={job._id} className="my-2">
+                      <Card.Header className="fw-bolder fs-5">
+                        {job.title}
+                      </Card.Header>
                       <Card.Body>
-                        <Card.Title className="fw-bolder d-flex justify-content-between align-items-center">
+                        <Card.Title className=" d-flex justify-content-between align-items-center">
                           <div>{job.company_name}</div>
                           <div>
                             <Button
@@ -39,10 +41,10 @@ const SearchJobs = () => {
                           </div>
                         </Card.Title>
 
-                        <Card.Text className="fw-semibold d-flex justify-content-between align-items-center">
-                          <div>{job.category}</div>
-                          <div>{job.job_type}</div>
-                          <div>{job.candidate_required_location}</div>
+                        <Card.Text className="fw-semibold d-flex justify-content-between align-items-center pt-3">
+                          <Col xs={4}>{job.category}</Col>
+                          <Col xs={4}>{job.job_type}</Col>
+                          <Col xs={4}>{job.candidate_required_location}</Col>
                         </Card.Text>
 
                         <Link
@@ -54,8 +56,9 @@ const SearchJobs = () => {
                         </Link>
                       </Card.Body>
                       <div className="text-end p-1">{formattedDate}</div>
-                    </Card>
-                  </>
+                    </Row>
+                    <hr />
+                  </Container>
                 );
               })}
           </Col>
