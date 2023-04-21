@@ -30,7 +30,7 @@ const HomeProfileSection = () => {
           </Col>
           <Col className="text-center pb-4 smallP">{profile.bio}</Col>
         </Col>
-        <Col className="border-top border-bottom p-3 smallP">
+        <Col className="border-top border-bottom p-3 smallP link-nav-profile">
           <Col className="d-flex justify-content-between">
             <p className="mb-0">Collegamenti</p>
             <p className="mb-0 text-primary fw-bold">60</p>
@@ -41,7 +41,7 @@ const HomeProfileSection = () => {
             <p className="mb-0 text-primary fw-bold">18</p>
           </Col>
         </Col>
-        <Col className="p-3 opacity-75 border-bottom smallP">
+        <Col className="p-3 opacity-75 border-bottom smallP link-nav-profile">
           <p className="mb-0">Accedi a strumenti e informazioni in esclusiva</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ const HomeProfileSection = () => {
             Prova Premium Gratis
           </a>
         </Col>
-        <Col className="align-items-center d-flex px-3 smallP">
+        <Col className="align-items-center d-flex px-3 smallP link-nav-profile">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

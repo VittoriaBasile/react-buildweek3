@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { Col, Container, Form, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  Nav,
+  NavDropdown,
+  Navbar,
+} from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { searchJobAction } from "../redux/actions";
+import HomeProfileSection from "./HomeProfileSection";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import ProfileTopbar from "./ProfileTopbar";
 
 const Topbar = () => {
   const [search, setSearch] = useState("");
@@ -13,11 +23,11 @@ const Topbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(searchJobAction(search));
-    navigate("/jobs/")
+    navigate("/jobs/");
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar sticky="top" bg="light" expand="lg">
       <Container fluid className="px-5">
         <Container className="d-flex px-1 align-items-center">
           <Link to={"/"}>
@@ -49,7 +59,11 @@ const Topbar = () => {
               </Form>
             </Col>
 
-            <Nav className="ms-auto my-2 my-lg-0 gap-2 align-items-center" style={{ maxHeight: "100px" }} navbarScroll>
+            <Nav
+              className="ms-auto my-2 my-lg-0 gap-2 align-items-center"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
               <Link to={"/"} className="text-decoration-none">
                 <Nav.Link href="#action1" className="link-nav ">
                   <div className="d-flex flex-column align-items-center">
@@ -147,16 +161,17 @@ const Topbar = () => {
 
               <div className="d-flex flex-column align-items-center px-0">
                 {/* img profile da inserire qui*/}
-                <Col  className="d-flex justify-content-center">
-                  <img src={profile.image} alt="profile-img" className="img-profile-nav rounded-circle  " />
+                <Col className="d-flex justify-content-center">
+                  <img
+                    src={profile.image}
+                    alt="profile-img"
+                    className="img-profile-nav rounded-circle  "
+                  />
                 </Col>
                 <NavDropdown title="Tu" className="link-nav ">
-                  <NavDropdown.Item href="#action3">Lavoro</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Messaggistica</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <Link to={"/profile/"} className="text-decoration-none">
-                    <NavDropdown.Item href="#action5">Il tuo profilo</NavDropdown.Item>
-                  </Link>
+                  <DropdownItem className="p-0">
+                    <ProfileTopbar />
+                  </DropdownItem>
                 </NavDropdown>
               </div>
 
@@ -173,14 +188,7 @@ const Topbar = () => {
                 >
                   <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
                 </svg>
-                <NavDropdown title="Lavoro" className="link-nav">
-                  <NavDropdown.Item className="" href="#action3">
-                    Lavoro
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Messaggistica</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Notifiche</NavDropdown.Item>
-                </NavDropdown>
+                <NavDropdown title="Lavoro" className="link-nav"></NavDropdown>
               </div>
               <Nav.Link className="text-gratis text-decoration-underline d-flex align-items-center">
                 Prova Premium gratis

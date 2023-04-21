@@ -215,7 +215,7 @@ body {
 
 .btn-blue-custom:hover {
 	background-color: rgba(0, 132, 255, 0.121);
-	border: 1.8px solid blue;
+	border: 1.8px solid #0a66c2;
 }
 
 .hover-icon:hover {
@@ -228,18 +228,43 @@ body {
 	height: 60px;
 }
 
-.job-links {
+.job-link {
 	text-decoration: none;
 	font-weight: normal;
 	color: gray;
+	transition: 0.2s ease-in-out;
 }
 
-.job-links:hover {
+.job-link:hover {
 	text-decoration: underline;
 	font-weight: bold;
-	color: blue;
+	color: #0a66c2;
+	transform: scale(1.05);
+	transition: 0.2s ease-in-out;
 }
 
 .date-string {
 	font-size: 12px;
+}
+
+.img-profile-dropnav {
+	object-fit: cover;
+
+}
+
+.link-nav-profile {
+	color: rgb(93, 93, 93);
+}
+
+.link-nav-profile:hover {
+	background-color: rgba(128, 128, 128, 0.235);
+
+}
+
+.underline {
+	text-decoration: none;
+}
+
+.underline:hover {
+	text-decoration: underline;
 }

@@ -25,11 +25,11 @@ const SearchJobs = () => {
                 return (
                   <Container className="px-3">
                     <Row key={job._id} className="my-2">
-                      <Card.Header className="fw-bolder fs-5">
+                      <Card.Header className="fw-bolder fs-5 ">
                         {job.title}
                       </Card.Header>
                       <Card.Body>
-                        <Card.Title className=" d-flex justify-content-between align-items-center">
+                        <Card.Title className=" d-flex justify-content-between align-items-center text-uppercase">
                           <div>{job.company_name}</div>
                           <div>
                             <Button
@@ -42,17 +42,40 @@ const SearchJobs = () => {
                         </Card.Title>
 
                         <Card.Text className="fw-semibold d-flex justify-content-between align-items-center mt-3  border-top border-bottom py-1">
-                          <Col xs={4}>{job.category}</Col>
-                          <Col xs={4}>{job.job_type}</Col>
-                          <Col xs={4}>{job.candidate_required_location}</Col>
+                          <Col xs={4}>
+                            <span className="smallP d-flex fw-normal">
+                              {" "}
+                              Settore
+                            </span>
+                            {job.category}
+                          </Col>
+
+                          <Col xs={4}>
+                            {" "}
+                            <span className="smallP d-flex">Tipo</span>
+                            <span className="text-capitalize">
+                              {job.job_type}
+                            </span>
+                          </Col>
+
+                          <Col xs={4}>
+                            {" "}
+                            <span className="smallP d-flex">Luogo</span>
+                            {job.candidate_required_location}
+                          </Col>
                         </Card.Text>
 
                         <Link
                           to={job.url}
                           variant="primary"
-                          className="job-links"
+                          className="job-link"
                         >
-                          <span>Visita il sito di {job.company_name}</span>
+                          <span>
+                            Visita il sito di{" "}
+                            <span className="text-uppercase">
+                              {job.company_name}
+                            </span>
+                          </span>
                         </Link>
                       </Card.Body>
                       <div className=" p-1 align-items-center d-flex justify-content-end">

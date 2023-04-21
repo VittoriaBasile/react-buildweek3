@@ -46,18 +46,18 @@ const HomePage = () => {
             {/* container scopri di più */}
             <Col className="bg-white rounded-3 p-2 my-3 fw-bold border">
               <Col>
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline  smallP">
                   Gruppi
                 </a>
               </Col>
               <Col className="pt-2 d-flex justify-content-between">
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline smallP">
                   Eventi
                 </a>
                 ➕
               </Col>
               <Col>
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline smallP">
                   Hashtag seguiti
                 </a>
               </Col>
@@ -102,8 +102,8 @@ const HomePage = () => {
                   xs={12}
                   className="d-flex px-0 text-center align-items-center flex-wrap"
                 >
-                  <Col>
-                    <Button className="bg-transparent border-0 text-dark">
+                  <Col className="link-nav-profile">
+                    <Button className="bg-transparent border-0 text-dark ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -119,7 +119,7 @@ const HomePage = () => {
                       Foto
                     </Button>
                   </Col>
-                  <Col>
+                  <Col className="link-nav-profile">
                     <Button className="bg-transparent border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ const HomePage = () => {
                       Video
                     </Button>
                   </Col>
-                  <Col>
+                  <Col className="link-nav-profile">
                     <Button className="bg-transparent p-0 border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ const HomePage = () => {
                       Evento
                     </Button>
                   </Col>
-                  <Col xs={5} className="">
+                  <Col xs={5} className="link-nav-profile">
                     <Button className="bg-transparent border-0 text-dark ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +247,7 @@ const HomePage = () => {
               <p className="fw-bold text-center">Entra nel mondo Audi Italia</p>
               <Col className="justify-content-center d-flex pb-3">
                 <Button
-                  className="text-primary border-primary fw-bold rounded-pill"
+                  className="text-primary border-primary fw-bold rounded-pill btn-blue-custom"
                   variant="outlined "
                 >
                   Segui

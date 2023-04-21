@@ -5,7 +5,7 @@ const JobSectionNavLink = () => {
   return (
     <>
       {" "}
-      <Col className="bg-white rounded-3 pt-3 px-3 mx-3 border mt-4">
+      <Col className="bg-white rounded-3 pt-3 px-3 mx-3 border ">
         <Container fluid>
           <Row className="align-items-center pb-2 ">
             <Col className="d-flex justify-content-between align-items-center">
