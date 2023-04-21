@@ -1,32 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import ModalPost from "./ModalPost";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommentAction, postCommentAction } from "../redux/actions";
-import SingleComment from "./SingleComment";
 
 const SinglePost = ({ post }) => {
   const [modalShow, setModalShow] = useState(false);
   const oldData = useSelector((state) => state.profile.content);
   const [commentsShow, setCommentsShow] = useState("d-none");
   const comments = useSelector((state) => state.comments.content);
-  const dispatch = useDispatch()
-  const [newComment, setNewComment] = useState("")
+  const dispatch = useDispatch();
+  const [newComment, setNewComment] = useState("");
   const newCommentData = {
     comment: newComment,
     rate: "3",
-    elementId: `${post._id}`
-  }
+    elementId: `${post._id}`,
+  };
   const handleComment = () => {
-    setCommentsShow("")
-    dispatch(getCommentAction(post._id))
-  }
+    setCommentsShow("");
+    dispatch(getCommentAction(post._id));
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(postCommentAction(post._id, newCommentData))
-    setNewComment("")
-  }
-
+    e.preventDefault();
+    dispatch(postCommentAction(post._id, newCommentData));
+    setNewComment("");
+  };
 
   return (
     <>
@@ -53,10 +51,7 @@ const SinglePost = ({ post }) => {
                 </Card.Subtitle>
               </Col>
               <Col xs={1}>
-                <Button
-                  className="bg-transparent border-0 text-secondary"
-                  onClick={() => setModalShow(true)}
-                >
+                <Button className="bg-transparent border-0 text-secondary" onClick={() => setModalShow(true)}>
                   ...
                 </Button>
               </Col>
@@ -64,37 +59,40 @@ const SinglePost = ({ post }) => {
             <Card.Text className="my-3 ms-1">
               <p className="text-start textP">{post.text}</p>
             </Card.Text>
-              <Button className="bg-transparent text-secondary border-0"
-                          onClick={handleComment}
-                          >
-                            Commenti
-                          </Button>
-            <div className={commentsShow}>
-              <Form onSubmit={handleSubmit}>
-                <Form.Control
-                        type="text" 
-                        onChange={(e)=>{setNewComment(e.target.value)}}
-                        value={newComment}
-                        />
-              </Form>
-              {comments.length > 0 &&
-                (comments.map((comment) => {
-                  return(
+            <Button className="bg-transparent text-secondary border-0" onClick={handleComment}>
+              Commenti
+            </Button>
+            <Row className={commentsShow}>
+              <Col xs={2} className="mx-0 pe-0 d-flex justify-content-center">
+                <img className="imgInputComments rounded-circle" src={oldData.image} alt="" />
+              </Col>
+              <Col xs={10} className="ps-0 ">
+                <Form onSubmit={handleSubmit}>
+                  <Form.Control
+                    className="rounded-pill"
+                    type="text"
+                    onChange={(e) => {
+                      setNewComment(e.target.value);
+                    }}
+                    value={newComment}
+                  />
+                </Form>
+              </Col>
+
+              {/* {comments.length > 0 &&
+                comments.map((comment) => {
+                  return (
                     <>
-                      <SingleComment key={comment._id} comment={comment}/>
+                      <SingleComment key={comment._id} comment={comment} />
                     </>
-                  )
-                }))}
-            </div>
+                  );
+                })}*/}
+            </Row>
           </Card.Body>
         </Card>
       </Col>
       {oldData.username === post.username && (
-        <ModalPost
-          show={modalShow}
-          post={post}
-          onHide={() => setModalShow(false)}
-        />
+        <ModalPost show={modalShow} post={post} onHide={() => setModalShow(false)} />
       )}
     </>
   );
