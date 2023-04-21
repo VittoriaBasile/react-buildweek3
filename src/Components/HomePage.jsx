@@ -45,18 +45,18 @@ const HomePage = () => {
             {/* container scopri di più */}
             <Col className="bg-white rounded-3 p-2 my-3 fw-bold border">
               <Col>
-                <a href="#" className="underline  smallP">
+                <a href="#" className="text-decoration-none smallP">
                   Gruppi
                 </a>
               </Col>
               <Col className="pt-2 d-flex justify-content-between">
-                <a href="#" className="underline smallP">
+                <a href="#" className="text-decoration-none smallP">
                   Eventi
                 </a>
                 ➕
               </Col>
               <Col>
-                <a href="#" className="underline smallP">
+                <a href="#" className="text-decoration-none smallP">
                   Hashtag seguiti
                 </a>
               </Col>
@@ -82,7 +82,7 @@ const HomePage = () => {
                       className="img-profile-input rounded-circle"
                     />
                   </Col>
-                  <Col xs={10} className="pe-3 ps-4">
+                  <Col xs={10} className="pe-5 ps-3">
                     <Form onSubmit={handleSubmit}>
                       <FormControl
                         placeholder="Avvia un post"
@@ -101,8 +101,8 @@ const HomePage = () => {
                   xs={12}
                   className="d-flex px-0 text-center align-items-center flex-wrap"
                 >
-                  <Col className="link-nav-profile">
-                    <Button className="bg-transparent border-0 text-dark ">
+                  <Col>
+                    <Button className="bg-transparent border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -118,7 +118,7 @@ const HomePage = () => {
                       Foto
                     </Button>
                   </Col>
-                  <Col className="link-nav-profile">
+                  <Col>
                     <Button className="bg-transparent border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ const HomePage = () => {
                       Video
                     </Button>
                   </Col>
-                  <Col className="link-nav-profile">
+                  <Col>
                     <Button className="bg-transparent p-0 border-0 text-dark">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ const HomePage = () => {
                       Evento
                     </Button>
                   </Col>
-                  <Col xs={5} className="link-nav-profile">
+                  <Col xs={5} className="">
                     <Button className="bg-transparent border-0 text-dark ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +192,8 @@ const HomePage = () => {
             </Col>
             {/* posts */}
 
-            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post}/>)}
+            {allPosts.length > 0 &&
+              allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
           </Col>
 
           {/* terza col principale*/}
@@ -245,7 +246,7 @@ const HomePage = () => {
               <p className="fw-bold text-center">Entra nel mondo Audi Italia</p>
               <Col className="justify-content-center d-flex pb-3">
                 <Button
-                  className="text-primary border-primary fw-bold rounded-pill btn-blue-custom"
+                  className="text-primary border-primary fw-bold rounded-pill"
                   variant="outlined "
                 >
                   Segui
