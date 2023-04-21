@@ -227,3 +227,19 @@ body {
 	width: 60px;
 	height: 60px;
 }
+
+.job-links {
+	text-decoration: none;
+	font-weight: normal;
+	color: gray;
+}
+
+.job-links:hover {
+	text-decoration: underline;
+	font-weight: bold;
+	color: blue;
+}
+
+.date-string {
+	font-size: 12px;
+}

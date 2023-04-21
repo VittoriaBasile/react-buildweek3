@@ -50,12 +50,18 @@ const SearchJobs = () => {
                         <Link
                           to={job.url}
                           variant="primary"
-                          className="fw-normal footer-icon-links"
+                          className="job-links"
                         >
                           <span>Visita il sito di {job.company_name}</span>
                         </Link>
                       </Card.Body>
-                      <div className="text-end p-1">{formattedDate}</div>
+                      <div className=" p-1 align-items-center d-flex justify-content-end">
+                        <span className="date-string pe-2">
+                          {" "}
+                          Data di pubblicazione :
+                        </span>{" "}
+                        {formattedDate}
+                      </div>
                     </Row>
                     <hr className="text-primary " />
                   </Container>
