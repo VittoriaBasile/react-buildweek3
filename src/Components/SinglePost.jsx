@@ -3,6 +3,7 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import ModalPost from "./ModalPost";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommentAction, postCommentAction } from "../redux/actions";
+import SingleComment from "./SingleComment";
 
 const SinglePost = ({ post }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -79,14 +80,14 @@ const SinglePost = ({ post }) => {
                 </Form>
               </Col>
 
-              {/* {comments.length > 0 &&
+              {comments.length > 0 &&
                 comments.map((comment) => {
                   return (
                     <>
                       <SingleComment key={comment._id} comment={comment} />
                     </>
                   );
-                })}*/}
+                })}
             </Row>
           </Card.Body>
         </Card>
