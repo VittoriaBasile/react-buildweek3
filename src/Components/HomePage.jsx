@@ -4,7 +4,7 @@ import { Button, Card, Col, Container, Form, FormControl, NavDropdown, Row } fro
 import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction, postPostAction } from "../redux/actions";
+import { getCommentAction, getPostsAction, postPostAction } from "../redux/actions";
 import SinglePost from "./SinglePost";
 
 const HomePage = () => {
@@ -178,7 +178,7 @@ const HomePage = () => {
             </Col>
             {/* posts */}
 
-            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
+            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post}/>)}
           </Col>
 
           {/* terza col principale*/}
@@ -192,7 +192,7 @@ const HomePage = () => {
                   viewBox="0 0 16 16"
                   data-supported-dps="16x16"
                   fill="currentColor"
-                  class="mercado-match"
+                  className="mercado-match"
                   width="16"
                   height="16"
                   focusable="false"

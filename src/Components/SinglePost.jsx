@@ -1,13 +1,32 @@
-import { useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import ModalPost from "./ModalPost";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCommentAction, postCommentAction } from "../redux/actions";
+import SingleComment from "./SingleComment";
 
 const SinglePost = ({ post }) => {
   const [modalShow, setModalShow] = useState(false);
   const oldData = useSelector((state) => state.profile.content);
   const [commentsShow, setCommentsShow] = useState("d-none");
   const comments = useSelector((state) => state.comments.content);
+  const dispatch = useDispatch()
+  const [newComment, setNewComment] = useState("")
+  const newCommentData = {
+    comment: newComment,
+    rate: "3",
+    elementId: `${post._id}`
+  }
+  const handleComment = () => {
+    setCommentsShow("")
+    dispatch(getCommentAction(post._id))
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(postCommentAction(post._id, newCommentData))
+    setNewComment("")
+  }
+
 
   return (
     <>
@@ -42,15 +61,27 @@ const SinglePost = ({ post }) => {
             <Card.Text className="my-3 ms-1">
               <p className="text-start textP">{post.text}</p>
             </Card.Text>
-            <Button className="bg-transparent text-secondary border-0" onClick={() => setCommentsShow("")}>
-              comments
-            </Button>
+              <Button className="bg-transparent text-secondary border-0"
+                          onClick={handleComment}
+                          >
+                            Commenti
+                          </Button>
             <div className={commentsShow}>
-              {/* {comments.length > 0 &&
-                comments.map((comment) => {
-                  <p key={comment._id}>{comment.comment}</p>;
-                })}
-                */}
+              <Form onSubmit={handleSubmit}>
+                <Form.Control
+                        type="text" 
+                        onChange={(e)=>{setNewComment(e.target.value)}}
+                        value={newComment}
+                        />
+              </Form>
+              {comments.length > 0 &&
+                (comments.map((comment) => {
+                  return(
+                    <>
+                      <SingleComment key={comment._id} comment={comment}/>
+                    </>
+                  )
+                }))}
             </div>
           </Card.Body>
         </Card>
