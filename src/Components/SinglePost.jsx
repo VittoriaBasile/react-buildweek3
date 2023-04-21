@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 const SinglePost = ({ post }) => {
   const [modalShow, setModalShow] = useState(false);
   const oldData = useSelector((state) => state.profile.content);
+  const [commentsShow, setCommentsShow] = useState("d-none");
+  const comments = useSelector((state) => state.comments.content);
 
   return (
     <>
@@ -17,7 +19,7 @@ const SinglePost = ({ post }) => {
                 <img
                   className="img-fluid imgPostProfile rounded-circle text-center"
                   width="60px"
-                  height= "60px"
+                  height="60px"
                   src={post.user && post.user.image ? post.user.image : ""}
                   alt="profilePostImage"
                 />
@@ -40,6 +42,16 @@ const SinglePost = ({ post }) => {
             <Card.Text className="my-3 ms-1">
               <p className="text-start textP">{post.text}</p>
             </Card.Text>
+            <Button className="bg-transparent text-secondary border-0" onClick={() => setCommentsShow("")}>
+              comments
+            </Button>
+            <div className={commentsShow}>
+              {/* {comments.length > 0 &&
+                comments.map((comment) => {
+                  <p key={comment._id}>{comment.comment}</p>;
+                })}
+                */}
+            </div>
           </Card.Body>
         </Card>
       </Col>

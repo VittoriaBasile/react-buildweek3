@@ -68,7 +68,11 @@ const HomePage = () => {
               <Container fluid>
                 <Row className="align-items-center">
                   <Col className="text-center" xs={2}>
-                    <img src={profile.image} alt="profile-img" className="img-profile-input img-fluid rounded-circle" />
+                    <img
+                      src={profile && profile.image}
+                      alt="profile-img"
+                      className="img-profile-input rounded-circle"
+                    />
                   </Col>
                   <Col xs={10} className="pe-3 ps-4">
                     <Form onSubmit={handleSubmit}>
