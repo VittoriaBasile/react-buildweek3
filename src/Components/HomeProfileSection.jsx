@@ -5,11 +5,11 @@ import ProfileImg from "../assets/imgs/gif.gif";
 import { useSelector } from "react-redux";
 
 const HomeProfileSection = () => {
-  const profile = useSelector((state) => state.profile.content)
-  
+  const profile = useSelector((state) => state.profile.content);
+
   return (
     <>
-      <Col className="bg-white rounded-3 p-1">
+      <Col className="bg-white rounded-3 ">
         <Col className="border-bottom">
           <img
             src="https://picsum.photos/seed/picsum/800/300"
@@ -28,9 +28,7 @@ const HomeProfileSection = () => {
           <Col className="fw-bold text-center pt-5">
             {profile.name} {profile.surname}
           </Col>
-          <Col className="text-center pb-4 smallP">
-            {profile.bio}
-          </Col>
+          <Col className="text-center pb-4 smallP">{profile.bio}</Col>
         </Col>
         <Col className="border-top border-bottom p-3 smallP">
           <Col className="d-flex justify-content-between">
