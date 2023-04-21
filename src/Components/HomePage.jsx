@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Topbar from "./Topbar";
 import {
   Button,
-  Card,
   Col,
   Container,
   Form,
@@ -13,7 +12,7 @@ import {
 import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommentAction, getPostsAction, postPostAction } from "../redux/actions";
+import { getPostsAction, postPostAction } from "../redux/actions";
 import SinglePost from "./SinglePost";
 
 const HomePage = () => {
