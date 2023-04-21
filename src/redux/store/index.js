@@ -14,6 +14,7 @@ import publicPostReducer from "../reducers/publicPostReducer";
 import experienceReducer from "../reducers/experienceReducer";
 import commentReducer from "../reducers/commentReducer";
 import loadingReducer from "../reducers/loadingReducer";
+import singleProfileReducer from "../reducers/singleProfileReducer";
 
 const persistConfig = {
 	key: "root",
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
 	experiences: experienceReducer,
 	comments: commentReducer,
 	loading: loadingReducer,
+	singleProfile: singleProfileReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

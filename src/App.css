@@ -268,3 +268,25 @@ body {
 .underline:hover {
 	text-decoration: underline;
 }
+
+.job-links {
+	text-decoration: none;
+	font-weight: normal;
+	color: gray;
+}
+
+.job-links:hover {
+	text-decoration: underline;
+	font-weight: bold;
+	color: blue;
+}
+
+.date-string {
+	font-size: 12px;
+}
+
+.imgInputComments {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+}

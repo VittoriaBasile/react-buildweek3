@@ -18,6 +18,7 @@ export const JOBS = "JOBS";
 export const COMMENTS = "COMMENTS";
 export const START_LOADING = 'START_LOADING';
 export const STOP_LOADING = 'STOP_LOADING';
+export const SINGLE_PROFILE = "SINGLE_PROFILE";
 
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
 export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
@@ -27,6 +28,25 @@ const generalProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profi
 const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const searchProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsEndpoint = "https://striveschool-api.herokuapp.com/api/posts";
+
+export const singleProfileFetchAction = (id) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(generalProfileEndpoint + id, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				},
+			});
+			if (response.ok) {
+				const data = await response.json();
+				dispatch({ type: SINGLE_PROFILE, payload: data });
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
 
 export const profileFetchAction = (id) => {
 	return async (dispatch) => {
@@ -333,3 +353,25 @@ export const startLoading = () => ({
 export const stopLoading = () => ({
 	type: STOP_LOADING
 });
+export const postCommentAction = (postID, comment) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${process.env.REACT_APP_COMMENT_KEY}`,
+				},
+				body: JSON.stringify(comment),
+			});
+			if (response.ok) {
+				alert("Commento Pubblicato!");
+				dispatch(getCommentAction(postID));
+				// const comments = await response.json();
+				// dispatch({ type: COMMENTS, payload: comments });
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};

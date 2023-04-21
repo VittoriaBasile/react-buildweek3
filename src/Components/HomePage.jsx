@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Topbar from "./Topbar";
 import {
   Button,
-  Card,
   Col,
   Container,
   Form,
@@ -193,8 +192,7 @@ const HomePage = () => {
             </Col>
             {/* posts */}
 
-            {allPosts.length > 0 &&
-              allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
+            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post}/>)}
           </Col>
 
           {/* terza col principale*/}
@@ -208,7 +206,7 @@ const HomePage = () => {
                   viewBox="0 0 16 16"
                   data-supported-dps="16x16"
                   fill="currentColor"
-                  class="mercado-match"
+                  className="mercado-match"
                   width="16"
                   height="16"
                   focusable="false"
