@@ -45,18 +45,18 @@ const HomePage = () => {
             {/* container scopri di più */}
             <Col className="bg-white rounded-3 p-2 my-3 fw-bold border">
               <Col>
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline smallP">
                   Gruppi
                 </a>
               </Col>
               <Col className="pt-2 d-flex justify-content-between">
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline smallP">
                   Eventi
                 </a>
                 ➕
               </Col>
               <Col>
-                <a href="#" className="text-decoration-none smallP">
+                <a href="#" className="underline smallP">
                   Hashtag seguiti
                 </a>
               </Col>
