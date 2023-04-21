@@ -15,8 +15,9 @@ const SinglePost = ({ post }) => {
             <Row>
               <Col xs={2} className="pe-0">
                 <img
-                  className="img-fluid rounded-circle text-center"
+                  className="img-fluid imgPostProfile rounded-circle text-center"
                   width="60px"
+                  height= "60px"
                   src={post.user && post.user.image ? post.user.image : ""}
                   alt="profilePostImage"
                 />

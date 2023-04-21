@@ -18,7 +18,7 @@ const ProfileMainPage = () => {
   const allProfile = useSelector((state) => state.allProfile.content);
 
   useEffect(() => {
-    dispatch(profileFetchAction());
+    dispatch(profileFetchAction(profile._id));
     dispatch(allProfileFetchAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

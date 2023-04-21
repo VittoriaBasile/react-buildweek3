@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import ProfileImg from "../assets/imgs/gif.gif";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { searchJobAction } from "../redux/actions";
 
@@ -9,11 +8,14 @@ const Topbar = () => {
   const [search, setSearch] = useState("");
   const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(searchJobAction(search));
+    navigate("/jobs/")
   };
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid className="px-5">
@@ -36,23 +38,11 @@ const Topbar = () => {
           <Navbar.Collapse id="navbarScroll">
             <Col xs={2}>
               <Form onSubmit={handleSubmit} className="d-flex bg-light">
-                <span className="search-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    fill="currentColor"
-                    className="bi bi-search mt-2 ms-2 "
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                  </svg>
-                </span>
                 <Form.Control
                   type="search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="    Search"
+                  placeholder="🔍 Search"
                   className="input-search me-2 border-0 rounded"
                   aria-label="Search"
                 />
@@ -157,8 +147,8 @@ const Topbar = () => {
 
               <div className="d-flex flex-column align-items-center px-0">
                 {/* img profile da inserire qui*/}
-                <Col xs={3} className="d-flex justify-content-center">
-                  <img src={profile.image} alt="profile-img" className="img-profile-nav img-fluid rounded-circle  " />
+                <Col  className="d-flex justify-content-center">
+                  <img src={profile.image} alt="profile-img" className="img-profile-nav rounded-circle  " />
                 </Col>
                 <NavDropdown title="Tu" className="link-nav ">
                   <NavDropdown.Item href="#action3">Lavoro</NavDropdown.Item>

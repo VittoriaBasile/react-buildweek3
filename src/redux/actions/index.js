@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export const SET_PROFILE = "SET_PROFILE";
 export const PROFILE = "PROFILE";
 export const ALL_PROFILE = "ALL_PROFILE";
@@ -22,7 +24,7 @@ const persProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/
 const searchProfileEndpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 const postsEndpoint = "https://striveschool-api.herokuapp.com/api/posts";
 
-export const profileFetchAction = () => {
+export const profileFetchAction = (id) => {
 	return async (dispatch) => {
 		try {
 			const response = await fetch(persProfileEndpoint, {
@@ -34,6 +36,7 @@ export const profileFetchAction = () => {
 			if (response.ok) {
 				const data = await response.json();
 				dispatch({ type: PROFILE, payload: data });
+				dispatch(getExperiencesAction(id));
 			}
 		} catch (error) {
 			console.log(error);
@@ -292,7 +295,7 @@ export const searchJobAction = (search) => {
 			});
 			if (response.ok) {
 				const jobs = await response.json();
-				dispatch({ type: JOBS, payload: jobs });
+				dispatch({ type: JOBS, payload: jobs.data });
 			}
 		} catch (error) {
 			console.log(error);

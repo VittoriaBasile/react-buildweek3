@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
   const exp = useSelector((state) => state.experiences.content);
-
+  console.log(exp);
   return (
     <>
       <Card className="headerCard border mt-4">
@@ -18,12 +18,7 @@ const HeaderProfile = ({ profileData }) => {
         <Card.Body>
           <Row className="absoluteProfile">
             <Col xs={7}>
-              <img
-                className="profileImg rounded-circle "
-                src={profileData.image}
-                alt="profileImage"
-                width="170px"
-              />
+              <img className="profileImg rounded-circle " src={profileData.image} alt="profileImage" />
               <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>

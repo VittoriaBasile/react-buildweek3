@@ -5,6 +5,7 @@ import FooterHomePage from "./FooterHomePage";
 import JobSectionNavLink from "./JobSectionNavLink";
 import bag from "../assets/imgs/bag.svg";
 import { useSelector } from "react-redux";
+import SearchJobs from "./SearchJobs";
 
 const JobsPage = () => {
   const profile = useSelector((state) => state.profile.content);
@@ -161,6 +162,7 @@ const JobsPage = () => {
 
             {/* seconda col principale*/}
             <Col xs={6} className="mediumP">
+              <SearchJobs/>
               <JobSectionNavLink />
 
               <Col className="bg-white mx-3 rounded-3 border pt-2 mt-4 px-4 d-flex">
