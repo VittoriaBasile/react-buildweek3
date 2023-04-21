@@ -12,7 +12,7 @@ const SinglePost = ({ post }) => {
   return (
     <>
       <Col>
-        <Card className="border bg-white rounded-3 p-1 m-3">
+        <Card className="border bg-white rounded-3 p-1 mt-2 mb-3 mx-3">
           <Card.Body>
             <Row>
               <Col xs={2} className="pe-0">
@@ -34,7 +34,10 @@ const SinglePost = ({ post }) => {
                 </Card.Subtitle>
               </Col>
               <Col xs={1}>
-                <Button className="bg-transparent border-0 text-secondary" onClick={() => setModalShow(true)}>
+                <Button
+                  className="bg-transparent border-0 text-secondary"
+                  onClick={() => setModalShow(true)}
+                >
                   ...
                 </Button>
               </Col>
@@ -42,7 +45,10 @@ const SinglePost = ({ post }) => {
             <Card.Text className="my-3 ms-1">
               <p className="text-start textP">{post.text}</p>
             </Card.Text>
-            <Button className="bg-transparent text-secondary border-0" onClick={() => setCommentsShow("")}>
+            <Button
+              className="bg-transparent text-secondary border-0"
+              onClick={() => setCommentsShow("")}
+            >
               comments
             </Button>
             <div className={commentsShow}>
@@ -56,7 +62,11 @@ const SinglePost = ({ post }) => {
         </Card>
       </Col>
       {oldData.username === post.username && (
-        <ModalPost show={modalShow} post={post} onHide={() => setModalShow(false)} />
+        <ModalPost
+          show={modalShow}
+          post={post}
+          onHide={() => setModalShow(false)}
+        />
       )}
     </>
   );
