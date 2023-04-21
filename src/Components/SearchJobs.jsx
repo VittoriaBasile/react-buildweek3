@@ -8,7 +8,7 @@ const SearchJobs = () => {
   return (
     <Row>
       <Col className="bg-white border rounded-3">
-        <h4 className="ps-3 pt-2">Offerte di lavoro :</h4>
+        <h4 className="ps-3 py-3 fw-bold">Offerte di lavoro</h4>
         <Row className="mx-1">
           {/* <Col xs={1}>
               <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
