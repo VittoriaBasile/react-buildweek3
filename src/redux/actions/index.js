@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const SET_PROFILE = "SET_PROFILE";
@@ -15,6 +16,8 @@ export const NEW_POST = "NEW_POST";
 export const PUBLIC_POST = "PUBLIC_POST";
 export const JOBS = "JOBS";
 export const COMMENTS = "COMMENTS";
+export const START_LOADING = 'START_LOADING';
+export const STOP_LOADING = 'STOP_LOADING';
 
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
 export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
@@ -322,3 +325,11 @@ export const getCommentAction = (postID) => {
 		}
 	};
 };
+
+export const startLoading = () => ({
+	type: START_LOADING
+});
+
+export const stopLoading = () => ({
+	type: STOP_LOADING
+});
