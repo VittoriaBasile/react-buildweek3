@@ -15,10 +15,30 @@ const HeaderProfile = ({ profileData }) => {
           variant="top"
           src="https://picsum.photos/seed/picsum/800/200"
         />
+        <div className="iconaFotoDiv">
+          <button className="modificaFoto border-0 bg-light rounded-circle ">
+            <svg
+              fill="#0a66c2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 3 16 16"
+              data-supported-dps="16x16"
+              className="mercado-match"
+              width="16"
+              height="16"
+              focusable="false"
+            >
+              <path d="M10 9a2 2 0 11-2-2 2 2 0 012 2zm5-2.5V14H1V6.5A2.5 2.5 0 013.5 4h.75L5 2h6l.75 2h.75A2.5 2.5 0 0115 6.5zM11 9a3 3 0 10-3 3 3 3 0 003-3z"></path>
+            </svg>
+          </button>
+        </div>
         <Card.Body>
           <Row className="absoluteProfile">
             <Col xs={7}>
-              <img className="profileImg rounded-circle " src={profileData.image} alt="profileImage" />
+              <img
+                className="profileImg rounded-circle "
+                src={profileData.image}
+                alt="profileImage"
+              />
               <Card.Title className=" mx-3">
                 {profileData.name} {profileData.surname}
               </Card.Title>
@@ -33,22 +53,6 @@ const HeaderProfile = ({ profileData }) => {
               </span>
             </Col>
             <Col className="ms-5">
-              <div className="iconaFotoDiv">
-                <button className="modificaFoto border-0 bg-light rounded-circle ">
-                  <svg
-                    fill="#0a66c2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 3 16 16"
-                    data-supported-dps="16x16"
-                    className="mercado-match"
-                    width="16"
-                    height="16"
-                    focusable="false"
-                  >
-                    <path d="M10 9a2 2 0 11-2-2 2 2 0 012 2zm5-2.5V14H1V6.5A2.5 2.5 0 013.5 4h.75L5 2h6l.75 2h.75A2.5 2.5 0 0115 6.5zM11 9a3 3 0 10-3 3 3 3 0 003-3z"></path>
-                  </svg>
-                </button>
-              </div>
               <Row className="">
                 <div className="d-flex justify-content-end">
                   <button
