@@ -14,6 +14,7 @@ export const GET_POSTS = "GET_POSTS";
 export const NEW_POST = "NEW_POST";
 export const PUBLIC_POST = "PUBLIC_POST";
 export const JOBS = "JOBS";
+export const COMMENTS = "COMMENTS";
 
 export const postFormAction = (content) => ({ type: POST_EXPERIENCES, payload: content });
 export const getFormAction = (content) => ({ type: GET_FORM_DATA, payload: content });
@@ -296,6 +297,25 @@ export const searchJobAction = (search) => {
 			if (response.ok) {
 				const jobs = await response.json();
 				dispatch({ type: JOBS, payload: jobs.data });
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
+export const getCommentAction = (postID) => {
+	return async (dispatch) => {
+		try {
+			const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${postID}`, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${process.env.REACT_APP_COMMENT_KEY}`,
+				},
+			});
+			if (response.ok) {
+				const comments = await response.json();
+				dispatch({ type: COMMENTS, payload: comments });
 			}
 		} catch (error) {
 			console.log(error);
