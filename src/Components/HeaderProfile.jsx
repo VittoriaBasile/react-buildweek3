@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const HeaderProfile = ({ profileData }) => {
   const [modalShow, setModalShow] = useState(false);
   const exp = useSelector((state) => state.experiences.content);
+
   return (
     <>
       <Card className="headerCard border mt-4">
