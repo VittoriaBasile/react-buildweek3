@@ -5,9 +5,9 @@ const JobSectionNavLink = () => {
   return (
     <>
       {" "}
-      <Col className="bg-white rounded-3 pt-3 px-3 mx-3 border">
+      <Col className="bg-white rounded-3 pt-3 px-3 mx-3 border mt-4">
         <Container fluid>
-          <Row className="align-items-center pb-2">
+          <Row className="align-items-center pb-2 ">
             <Col className="d-flex justify-content-between align-items-center">
               <div>
                 <h5>Ricerche di offerte di lavoro suggerite</h5>

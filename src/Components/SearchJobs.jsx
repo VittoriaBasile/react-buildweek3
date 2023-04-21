@@ -6,9 +6,9 @@ const SearchJobs = () => {
   const searchResults = useSelector((state) => state.searchJobs.content);
 
   return (
-    <Row>
-      <Col className="bg-white border rounded-3">
-        <h4 className="ps-3 py-3 fw-bold">Offerte di lavoro</h4>
+    <Row className="mx-3">
+      <Col className="bg-white border rounded-3 ">
+        <h4 className="ps-3 py-3 fw-bold ">Offerte di lavoro</h4>
         <Row className="mx-1">
           {/* <Col xs={1}>
               <img style={{ width: "40px" }} src="https://picsum.photos/40" alt="" />
