@@ -249,7 +249,8 @@ body {
 
 .img-profile-dropnav {
 	object-fit: cover;
-
+	height: 85px;
+	width: 100px;
 }
 
 .link-nav-profile {
@@ -258,7 +259,6 @@ body {
 
 .link-nav-profile:hover {
 	background-color: rgba(128, 128, 128, 0.235);
-
 }
 
 .underline {

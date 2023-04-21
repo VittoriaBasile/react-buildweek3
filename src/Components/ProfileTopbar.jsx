@@ -17,11 +17,11 @@ const ProfileTopbar = () => {
               className="img-profile-dropnav img-fluid rounded-circle  "
             />
           </Col>
-          <Col className=" d-flex justify-content-start flex-column ps-0 pt-2">
+          <Col xs={7} className=" d-flex justify-content-start flex-column ps-0 pt-3">
             <Col className="fw-bold">
               {profile.name} {profile.surname}
             </Col>
-            <Col className="pb-2 smallP"> {profile.bio}</Col>
+            <Col className="pb-2 smallP text-truncate"> {profile.bio}</Col>
           </Col>
         </Row>
         <Link className="text-decoration-none" to={"/profile/"}>
