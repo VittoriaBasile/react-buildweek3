@@ -9,7 +9,7 @@ const HomeProfileSection = () => {
 
   return (
     <>
-      <Col className="bg-white rounded-3 ">
+      <Col className="bg-white rounded-3 border">
         <Col className="border-bottom">
           <img
             src="https://picsum.photos/seed/picsum/800/300"

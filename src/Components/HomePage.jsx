@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Topbar from "./Topbar";
-import { Button, Card, Col, Container, Form, FormControl, NavDropdown, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  NavDropdown,
+  Row,
+} from "react-bootstrap";
 import FooterHomePage from "./FooterHomePage";
 import HomeProfileSection from "./HomeProfileSection";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,11 +40,11 @@ const HomePage = () => {
       <Container>
         <Row className="pt-4 gap-2">
           {/* prima col principale*/}
-          <Col xs={2} className="px-0">
+          <Col xs={2} className="px-0 ">
             {/* container profile */}
             <HomeProfileSection />
             {/* container scopri di più */}
-            <Col className="bg-white rounded-3 p-2 my-3 fw-bold">
+            <Col className="bg-white rounded-3 p-2 my-3 fw-bold border">
               <Col>
                 <a href="#" className="text-decoration-none smallP">
                   Gruppi
@@ -89,7 +98,10 @@ const HomePage = () => {
               </Container>
 
               <Row className="py-3">
-                <Col xs={12} className="d-flex px-0 text-center align-items-center flex-wrap">
+                <Col
+                  xs={12}
+                  className="d-flex px-0 text-center align-items-center flex-wrap"
+                >
                   <Col>
                     <Button className="bg-transparent border-0 text-dark">
                       <svg
@@ -171,20 +183,24 @@ const HomePage = () => {
                   </Col>
                   <Col xs={4} className="d-flex ps-0">
                     <p className="opacity-75 pe-1 m-0">ordina per </p>
-                    <NavDropdown title="Principali" className="link-nav fw-bold" />
+                    <NavDropdown
+                      title="Principali"
+                      className="link-nav fw-bold"
+                    />
                   </Col>
                 </Row>
               </Container>
             </Col>
             {/* posts */}
 
-            {allPosts.length > 0 && allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
+            {allPosts.length > 0 &&
+              allPosts.map((post) => <SinglePost key={post._id} post={post} />)}
           </Col>
 
           {/* terza col principale*/}
-          <Col xs={3} className="px-0 smallP">
+          <Col xs={3} className="px-0 smallP ">
             {/* linkedin notizie */}
-            <Col className="bg-white rounded-3 p-1">
+            <Col className="bg-white rounded-3 p-1 border">
               <Col className="d-flex justify-content-between  px-2 py-2 align-items-center">
                 <h6 className="fw-bold m-0">Linkedin Notizie</h6>
                 <svg
@@ -202,11 +218,14 @@ const HomePage = () => {
               </Col>
               <Col>{/* inserire qui il componente notizie */}</Col>
               <Col>
-                <NavDropdown title="Visualizza altro" className="link-nav fw-bold px-4" />
+                <NavDropdown
+                  title="Visualizza altro"
+                  className="link-nav fw-bold px-4"
+                />
               </Col>
             </Col>
             {/* container annuncio */}
-            <Col className="bg-white rounded-3 p-1 my-3">
+            <Col className="bg-white rounded-3 p-1 my-3 border">
               <Col className="d-flex justify-content-end pe-2 align-items-center">
                 <p className="fw-bold pt-2">Annuncio </p>
                 <svg
@@ -220,12 +239,17 @@ const HomePage = () => {
                   <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                 </svg>
               </Col>
-              <p className="text-center px-3 opacity-50">Segui i nostri valori e partners seguendo la nostra pagina.</p>
+              <p className="text-center px-3 opacity-50">
+                Segui i nostri valori e partners seguendo la nostra pagina.
+              </p>
               <img src="" alt="" />
               <img src="" alt="" />
               <p className="fw-bold text-center">Entra nel mondo Audi Italia</p>
               <Col className="justify-content-center d-flex pb-3">
-                <Button className="text-primary border-primary fw-bold rounded-pill" variant="outlined ">
+                <Button
+                  className="text-primary border-primary fw-bold rounded-pill"
+                  variant="outlined "
+                >
                   Segui
                 </Button>
               </Col>
